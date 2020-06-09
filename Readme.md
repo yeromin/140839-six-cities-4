@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Дима Еремин](https://up.htmlacademy.ru/react/4/user/140839).
-* Наставник: `Неизвестно`.
+* Наставник: [Виктор Степанов](https://htmlacademy.ru/profile/id289091).
 
 ---
 
