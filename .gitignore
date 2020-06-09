@@ -11,6 +11,9 @@ Thumbs.db
 *.log*
 node_modules/
 
+# правило для отмены индексации изменений
+public/bundle.js
+public/bundle.js.map
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,node,visualstudiocode,react,web
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,node,visualstudiocode,react,web
