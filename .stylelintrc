@@ -1,3 +1,25 @@
+const { resolve } = require('path')
+
+const basePath = resolve(__dirname, 'node_modules')
+const groupSelectors = `${basePath}/stylelint-group-selectors`
+const cssTreeValidator = `${basePath}/stylelint-csstree-validator`
+
+module.exports = {
+    plugins: [groupSelectors, cssTreeValidator],
+    extends: [
+        "extends": "stylelint-config-htmlacademy"
+    ],
+    rules: {
+        //'no-empty-source': null,
+        //check and add avaialble rules here: https://github.com/kristerkari/stylelint-scss
+        //'scss/selector-no-redundant-nesting-selector': true,
+        //'plugin/stylelint-group-selectors': true,
+        //'csstree/validator': true,
+    },
+}
+
+
+
 {
-  "extends": "stylelint-config-htmlacademy"
+
 }
