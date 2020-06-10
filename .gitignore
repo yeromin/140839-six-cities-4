@@ -15,8 +15,9 @@ node_modules/
 public/bundle.js
 public/bundle.js.map
 
-# Created by https://www.toptal.com/developers/gitignore/api/macos,node,visualstudiocode,react,web
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,node,visualstudiocode,react,web
+
+# Created by https://www.toptal.com/developers/gitignore/api/node,react,macos,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,react,macos,visualstudiocode
 
 ### macOS ###
 # General
@@ -180,19 +181,4 @@ sketch
 # Ignore all local history of files
 .history
 
-### Web ###
-*.asp
-*.cer
-*.csr
-*.css
-*.htm
-*.html
-*.js
-*.jsp
-*.php
-*.rss
-*.wasm
-*.wat
-*.xhtml
-
-# End of https://www.toptal.com/developers/gitignore/api/macos,node,visualstudiocode,react,web
+# End of https://www.toptal.com/developers/gitignore/api/node,react,macos,visualstudiocode
