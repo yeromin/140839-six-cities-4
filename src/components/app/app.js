@@ -1,14 +1,14 @@
 import React from 'react';
-import App from '../main/main';
+import Main from '../main/main';
 // import PropTypes from 'prop-types';
 
 /* eslint-disable react/prop-types */
-const Main = (props) => {
+const App = (props) => {
   const {placesToStay, placeCardName} = props;
 
   return (
     <React.Fragment>
-      <App
+      <Main
         placesToStay = {placesToStay}
         placeCardName = {placeCardName}
       />
@@ -16,4 +16,4 @@ const Main = (props) => {
   );
 };
 
-export default Main;
+export default App;

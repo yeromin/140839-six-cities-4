@@ -1,5 +1,6 @@
 import React from "react";
 import PlaceCard from '../placeCard/placeCard';
+import PropTypes from 'prop-types';
 
 const Main = (props) => {
   /* eslint-disable-next-line react/prop-types */
@@ -144,7 +145,7 @@ const Main = (props) => {
                 </form>
                 <div className="cities__places-list places__list tabs__content">
 
-                  {placeCardName.map((placeCardTitle, i)=>{
+                  {placeCardName.map((placeCardTitle, i) => {
                     return (
                       <PlaceCard
                         placeCardTitle={placeCardTitle}
@@ -164,6 +165,11 @@ const Main = (props) => {
       </div>
     </React.Fragment>
   );
+};
+
+Main.propTypes = {
+  placesToStay: PropTypes.number.isRequired,
+  placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default Main;
