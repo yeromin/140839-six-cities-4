@@ -146,13 +146,12 @@ const Main = (props) => {
 
                   {placeCardName.map((placeCardTitle, i)=>{
                     return (
-                      <PlaceCard 
+                      <PlaceCard
                         placeCardTitle={placeCardTitle}
                         key = {i}
                       />
-                    )})}
-
-
+                    );
+                  })}
 
                 </div>
               </section>
