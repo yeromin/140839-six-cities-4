@@ -4,7 +4,16 @@ import App from './components/app/app';
 
 const init = () => {
   ReactDOM.render(
-      <App />,
+      <App
+        placesToStay={13123}
+        placeCardName={[
+          `Beautiful & luxurious`,
+          `Wood and stone place`,
+          `apartment at great location`,
+          `Beautiful & luxurious`,
+          `apartment at great location`
+        ]}
+      />,
       document.querySelector(`#root`)
   );
 };
