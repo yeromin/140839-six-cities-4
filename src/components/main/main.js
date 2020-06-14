@@ -2,9 +2,12 @@ import React from "react";
 import PlaceCard from '../placeCard/placeCard';
 import PropTypes from 'prop-types';
 
+
 const Main = (props) => {
   /* eslint-disable-next-line react/prop-types */
-  const {numberFoundPlaces, placeCardName} = props;
+  const {numberFoundPlaces, placeCardName, onTitleClickTest} = props;
+
+  // const onTitleClickTest = (e) => console.log(`Test click fired`, e);
 
   return (
     <React.Fragment>
@@ -105,7 +108,7 @@ const Main = (props) => {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
 
-                <b className="places__found">
+                <b className="places__found" onClick={onTitleClickTest}>
                   {numberFoundPlaces} places to stay in Amsterdam
                 </b>
 
