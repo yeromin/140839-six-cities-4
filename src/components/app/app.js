@@ -4,13 +4,13 @@ import Main from '../main/main';
 
 /* eslint-disable react/prop-types */
 const App = (props) => {
-  const {placesToStay, placeCardName} = props;
+  const {numberFoundPlaces, placeCardName} = props;
 
   return (
     <React.Fragment>
       <Main
-        placesToStay = {placesToStay}
-        placeCardName = {placeCardName}
+        numberFoundPlaces={numberFoundPlaces}
+        placeCardName={placeCardName}
       />
     </React.Fragment>
   );

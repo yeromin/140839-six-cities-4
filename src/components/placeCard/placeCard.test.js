@@ -9,8 +9,7 @@ describe(`placePlate`, () => {
     const tree = renderer.create(
         <PlaceCard
           name={name}
-        />)
-        .toJSON();
+        />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

@@ -5,7 +5,7 @@ import App from './components/app/app';
 const init = () => {
   ReactDOM.render(
       <App
-        placesToStay={13123}
+        numberFoundPlaces={13123}
         placeCardName={[
           `Beautiful & luxurious`,
           `Wood and stone place`,
