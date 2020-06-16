@@ -1,7 +1,6 @@
 import React from 'react';
 import App from './app';
 import renderer from 'react-test-renderer';
-import PropTypes from 'prop-types';
 
 const numberFoundPlaces = 55;
 const placeCardName = [
@@ -22,9 +21,3 @@ describe(`appTest`, () => {
     expect(mainTree).toMatchSnapshot();
   });
 });
-
-
-App.propTypes = {
-  numberFoundPlaces: PropTypes.number.isRequired,
-  placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired
-};

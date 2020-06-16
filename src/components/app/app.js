@@ -6,11 +6,16 @@ import Main from '../main/main';
 const App = (props) => {
   const {numberFoundPlaces, placeCardName} = props;
 
+  // disable console.log wanring
+  /* eslint-disable-next-line */
+  const onTitleClickTest = () => console.log(`The REAL function fired!`);
+
   return (
     <React.Fragment>
       <Main
         numberFoundPlaces={numberFoundPlaces}
         placeCardName={placeCardName}
+        onTitleClickTest={onTitleClickTest}
       />
     </React.Fragment>
   );

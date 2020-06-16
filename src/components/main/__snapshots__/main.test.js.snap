@@ -204,6 +204,7 @@ Array [
             </h2>
             <b
               className="places__found"
+              onClick={[Function]}
             >
               3333
                places to stay in Amsterdam

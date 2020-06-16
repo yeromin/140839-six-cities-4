@@ -1,8 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main';
-import PropTypes from 'prop-types';
-
 
 const numberFoundPlaces = 3333;
 const placeCardName = [
@@ -13,19 +11,18 @@ const placeCardName = [
   `MOCK OF place name - apartment at great location`
 ];
 
+// disable console.log wanring
+/* eslint-disable-next-line */
+const onTitleClickTest = () => console.log(`Test click occurred`);
+
 describe(`mainTest`, () => {
   it(`Component Main should render the proper Search result page`, () => {
     const mainTree = renderer.create(
         <Main
           numberFoundPlaces={numberFoundPlaces}
           placeCardName={placeCardName}
+          onTitleClickTest={onTitleClickTest}
         />).toJSON();
     expect(mainTree).toMatchSnapshot();
   });
 });
-
-
-Main.propTypes = {
-  numberFoundPlaces: PropTypes.number.isRequired,
-  placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired
-};

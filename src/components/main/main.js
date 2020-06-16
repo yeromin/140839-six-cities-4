@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 
 
 const Main = (props) => {
-  /* eslint-disable-next-line react/prop-types */
   const {numberFoundPlaces, placeCardName, onTitleClickTest} = props;
-
-  // const onTitleClickTest = (e) => console.log(`Test click fired`, e);
 
   return (
     <React.Fragment>
@@ -172,7 +169,8 @@ const Main = (props) => {
 
 Main.propTypes = {
   numberFoundPlaces: PropTypes.number.isRequired,
-  placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired
+  placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onTitleClickTest: PropTypes.func.isRequired
 };
 
 export default Main;
