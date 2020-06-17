@@ -2,9 +2,9 @@ import React from "react";
 import PlaceCard from '../placeCard/placeCard';
 import PropTypes from 'prop-types';
 
+
 const Main = (props) => {
-  /* eslint-disable-next-line react/prop-types */
-  const {placesToStay, placeCardName} = props;
+  const {numberFoundPlaces, placeCardName, onTitleClickTest} = props;
 
   return (
     <React.Fragment>
@@ -105,8 +105,8 @@ const Main = (props) => {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
 
-                <b className="places__found">
-                  {placesToStay} places to stay in Amsterdam
+                <b className="places__found" onClick={onTitleClickTest}>
+                  {numberFoundPlaces} places to stay in Amsterdam
                 </b>
 
                 <form className="places__sorting" action="#" method="get">
@@ -149,7 +149,7 @@ const Main = (props) => {
                     return (
                       <PlaceCard
                         placeCardTitle={placeCardTitle}
-                        key = {i}
+                        key = {i + 1}
                       />
                     );
                   })}
@@ -168,8 +168,9 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  placesToStay: PropTypes.number.isRequired,
-  placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired
+  numberFoundPlaces: PropTypes.number.isRequired,
+  placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onTitleClickTest: PropTypes.func.isRequired
 };
 
 export default Main;

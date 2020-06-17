@@ -4,13 +4,18 @@ import Main from '../main/main';
 
 /* eslint-disable react/prop-types */
 const App = (props) => {
-  const {placesToStay, placeCardName} = props;
+  const {numberFoundPlaces, placeCardName} = props;
+
+  // disable console.log wanring
+  /* eslint-disable-next-line */
+  const onTitleClickTest = () => console.log(`The REAL function fired!`);
 
   return (
     <React.Fragment>
       <Main
-        placesToStay = {placesToStay}
-        placeCardName = {placeCardName}
+        numberFoundPlaces={numberFoundPlaces}
+        placeCardName={placeCardName}
+        onTitleClickTest={onTitleClickTest}
       />
     </React.Fragment>
   );
