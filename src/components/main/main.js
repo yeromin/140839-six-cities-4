@@ -6,6 +6,10 @@ import PropTypes from 'prop-types';
 const Main = (props) => {
   const {numberFoundPlaces, placeCardName, onTitleClickTest} = props;
 
+  // TODO: replace placeCardName Array by Object (map & propTypes)
+  console.log(placeCardName);
+  
+  
   return (
     <React.Fragment>
       <div style={{display: `none`}}>
@@ -145,14 +149,18 @@ const Main = (props) => {
                 </form>
                 <div className="cities__places-list places__list tabs__content">
 
-                  {placeCardName.map((placeCardTitle, i) => {
+
+                <PlaceCard />
+                <PlaceCard placeCardTitle={`1111`}/>
+
+                  {/* {placeCardName.map((placeCardTitle, i) => {
                     return (
                       <PlaceCard
                         placeCardTitle={placeCardTitle}
                         key = {i + 1}
                       />
                     );
-                  })}
+                  })} */}
 
                 </div>
               </section>

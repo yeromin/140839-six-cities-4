@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const placeCard = (props) => {
 
   /* eslint-disable react/prop-types */
