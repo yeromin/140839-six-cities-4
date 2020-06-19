@@ -4,7 +4,10 @@ import Main from '../main/main';
 
 /* eslint-disable react/prop-types */
 const App = (props) => {
-  const {numberFoundPlaces, placeCardName} = props;
+  const {
+    // numberFoundPlaces,
+    placeListData,
+    placeCardData} = props;
 
   // disable console.log wanring
   /* eslint-disable-next-line */
@@ -13,8 +16,9 @@ const App = (props) => {
   return (
     <React.Fragment>
       <Main
-        numberFoundPlaces={numberFoundPlaces}
-        placeCardName={placeCardName}
+        // numberFoundPlaces={numberFoundPlaces}
+        placeListData={placeListData}
+        placeCardData={placeCardData}
         onTitleClickTest={onTitleClickTest}
       />
     </React.Fragment>
