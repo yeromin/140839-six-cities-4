@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import PlaceCard from './placeCard';
+import PlaceCard from './offerCard';
 
 const name = `Mock of Place card`;
 

@@ -1,6 +1,6 @@
 /* eslint-disable */
 const mockData = {
-  placesList:{
+  offersList:{
     amsterdam: {
       city: `Amsterdam`,
       placesFound: 8912,
@@ -27,8 +27,8 @@ const mockData = {
     }
   },
 
-  placeOfferCard: {
-    1: {
+  offerCard: {
+    0: {
       price: 190,
       pricePer: `Night`,
       currency: `$`,
@@ -37,9 +37,9 @@ const mockData = {
       type: `apartment`,
       rating: 4,
       badge: `Premium`,
-      thumbnail: `img/apartment-01.jpg`
+      thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    2: {
+    1: {
       price: 100,
       pricePer: `Night`,
       currency: `€`,
@@ -48,9 +48,9 @@ const mockData = {
       type: `apartment`,
       rating: 4.5,
       badge: `Premium`,
-      thumbnail: `img/apartment-01.jpg`
+      thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    3: {
+    2: {
       price: 200,
       pricePer: `Night`,
       currency: `€`,
@@ -59,9 +59,9 @@ const mockData = {
       type: `house`,
       rating: 3,
       badge: `Premium`,
-      thumbnail: `img/apartment-01.jpg`
+      thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    4: {
+    3: {
       price: 2500,
       pricePer: `Month`,
       currency: `$`,
@@ -70,7 +70,7 @@ const mockData = {
       type: `house`,
       rating: 5,
       badge: `LUXURY`,
-      thumbnail: `img/apartment-01.jpg`
+      thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
   }
 };

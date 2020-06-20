@@ -15,13 +15,13 @@ describe(`Main_End2End`, () => {
   it(`Should test if button clicked`, () => {
 
     // create function for testing
-    const handlePlaceCardTitleClick = jest.fn();
+    const handleOfferCardTitleClick = jest.fn();
 
     const wrapper = shallow(
         <Main
           numberFoundPlaces={12}
           placeCardName={[`Beautiful apartment`, `Chip place`, `Nice view house`]}
-          handlePlaceCardTitleClick={handlePlaceCardTitleClick}
+          handleOfferCardTitleClick={handleOfferCardTitleClick}
         />
     );
 
@@ -37,10 +37,10 @@ describe(`Main_End2End`, () => {
     // targetBtn.simulate(`click`, {preventDefault() {}});
 
     // long command:
-    // expect(handlePlaceCardTitleClick.mock.calls.length).toBe(1);
+    // expect(handleOfferCardTitleClick.mock.calls.length).toBe(1);
 
     // shortcut:
-    expect(handlePlaceCardTitleClick).toHaveBeenCalledTimes(1);
+    expect(handleOfferCardTitleClick).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -48,5 +48,5 @@ describe(`Main_End2End`, () => {
 Main.propTypes = {
   numberFoundPlaces: PropTypes.number.isRequired,
   placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired,
-  handlePlaceCardTitleClick: PropTypes.func.isRequired
+  handleOfferCardTitleClick: PropTypes.func.isRequired
 };

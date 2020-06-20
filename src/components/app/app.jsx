@@ -5,18 +5,18 @@ import Main from '../main/main.jsx';
 const App = (props) => {
   const {mockData} = props;
 
-  const handlePlaceCardTitleClick = (evt) => {
+  const handleOfferCardTitleClick = (evt) => {
     evt.preventDefault();
     // disable console.log wanring
     /* eslint-disable-next-line */
     console.log(`The REAL function fired!`, evt.target);
   };
 
-  const handlePlaceCardHover = () => {
-    // disable console.log wanring
-    /* eslint-disable-next-line */
-    console.log(`Place card hovered`);
-  };
+  // const handleOfferCardHover = () => {
+  //   // disable console.log wanring
+  //   /* eslint-disable-next-line */
+  //   console.log(`Place card hovered`);
+  // };
 
   return (
     <React.Fragment>
@@ -25,8 +25,8 @@ const App = (props) => {
         // placeListData={placeListData}
         // placeCardData={placeCardData}
         mockData={mockData}
-        handlePlaceCardTitleClick={handlePlaceCardTitleClick}
-        handlePlaceCardHover={handlePlaceCardHover}
+        handleOfferCardTitleClick={handleOfferCardTitleClick}
+        // handleOfferCardHover={handleOfferCardHover}
       />
     </React.Fragment>
   );

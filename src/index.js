@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
 import mockData from './mocks/offers';
 
-// const placeListData = mockData.placesList;
-// const placeCardData = mockData.placeOfferCard;
+// const placeListData = mockData.offersList;
+// const placeCardData = mockData.offerCard;
 
 
 const init = () => {

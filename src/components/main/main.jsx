@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import PlacesList from '../placesList/placesList.jsx';
+import OffersList from '../offersList/offersList.jsx';
 
 
 const Main = (props) => {
-  const {mockData, handlePlaceCardTitleClick, handlePlaceCardHover} = props;
+  const {mockData, handleOfferCardTitleClick} = props; // handleOfferCardHover
 
   return (
     <React.Fragment>
@@ -103,10 +103,10 @@ const Main = (props) => {
           <div className="cities">
             <div className="cities__places-container container">
 
-              <PlacesList
+              <OffersList
                 mockData={mockData}
-                handlePlaceCardTitleClick={handlePlaceCardTitleClick}
-                handlePlaceCardHover={handlePlaceCardHover}
+                handleOfferCardTitleClick={handleOfferCardTitleClick}
+                // handleOfferCardHover={handleOfferCardHover}
               />
 
               <div className="cities__right-section">
@@ -120,15 +120,14 @@ const Main = (props) => {
   );
 };
 
-// ??? ругается, если вырубить тут валидацию
 Main.propTypes = {
-  handlePlaceCardTitleClick: PropTypes.func.isRequired,
-  handlePlaceCardHover: PropTypes.func.isRequired,
+  handleOfferCardTitleClick: PropTypes.func.isRequired,
+  // handleOfferCardHover: PropTypes.func.isRequired,
 
   mockData: PropTypes.shape({
 
     // place list
-    placesList: PropTypes.objectOf(
+    offersList: PropTypes.objectOf(
         PropTypes.shape({
           city: PropTypes.string.isRequired,
           placesFound: PropTypes.number.isRequired,
@@ -136,7 +135,7 @@ Main.propTypes = {
     ).isRequired,
 
     // place item
-    placeOfferCard: PropTypes.objectOf(PropTypes.shape({
+    offerCard: PropTypes.objectOf(PropTypes.shape({
       price: PropTypes.number.isRequired,
       pricePer: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,

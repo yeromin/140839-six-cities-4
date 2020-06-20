@@ -13,7 +13,7 @@ const placeCardName = [
 
 // disable console.log wanring
 /* eslint-disable-next-line */
-const handlePlaceCardTitleClick = () => console.log(`Test click occurred`);
+const handleOfferCardTitleClick = () => console.log(`Test click occurred`);
 
 describe(`mainTest`, () => {
   it(`Component Main should render the proper Search result page`, () => {
@@ -21,7 +21,7 @@ describe(`mainTest`, () => {
         <Main
           numberFoundPlaces={numberFoundPlaces}
           placeCardName={placeCardName}
-          handlePlaceCardTitleClick={handlePlaceCardTitleClick}
+          handleOfferCardTitleClick={handleOfferCardTitleClick}
         />).toJSON();
     expect(mainTree).toMatchSnapshot();
   });
