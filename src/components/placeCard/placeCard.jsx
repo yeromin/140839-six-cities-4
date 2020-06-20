@@ -1,4 +1,6 @@
 // ????????? «???????? ???????????»
+// component «Offer card»
+
 import React from 'react';
 
 // TODO: ???????-?????????? ?????????
@@ -8,7 +10,10 @@ import React from 'react';
 const PlaceCard = (props) => {
 
   /* eslint-disable react/prop-types */
-  const {placeCardTitle,
+  const {
+    handlePlaceCardTitleClick,
+    handlePlaceCardHover,
+    placeCardTitle,
     placeCardBadge,
     placeCardThumbnail,
     placeCardCurrency,
@@ -18,8 +23,15 @@ const PlaceCard = (props) => {
     placeCardType,
     placeCardID} = props;
 
+  // console.log(props);
+
   return (
-    <article className="cities__place-card place-card" id={placeCardID}>
+    <article
+      className="cities__place-card place-card"
+      id={placeCardID}
+      onClick={handlePlaceCardTitleClick}
+      onMouseEnter={handlePlaceCardHover}
+    >
       <div className="place-card__mark">
         <span>{placeCardBadge}</span>
       </div>
@@ -42,7 +54,7 @@ const PlaceCard = (props) => {
           </button>
         </div>
         <div className="place-card__rating rating" data-rating={placeCardRating}><div className="place-card__stars rating__stars"><span style={{width: `80%`}} /><span className="visually-hidden">Rating</span></div></div>
-        <h2 className="place-card__name"><a href="#">{placeCardTitle}</a></h2>
+        <h2 className="place-card__name" onClick={handlePlaceCardTitleClick}><a href="#">{placeCardTitle}</a></h2>
         <p className="place-card__type">{placeCardType}</p>
       </div>
     </article>

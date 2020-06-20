@@ -1,13 +1,27 @@
 // компонент «Список предложений»
-import React from "react";
-import PropTypes from 'prop-types';
-import PlaceCard from '../placeCard/placeCard.jsx';
+// component «Offer List»
 
+import React from "react";
+import PlaceCard from '../placeCard/placeCard.jsx';
 
 class PlacesList extends React.PureComponent {
   constructor(props) {
     super(props);
+
+    // ?????????????????????
+    // const placeListData = this.props.mockData.placesList;
+    // const placeCardData = this.props.mockData.placeOfferCard;
+    // ?????????????????????
+
   }
+
+  // handlePlaceCardHover = () => {
+  //   // disable console.log wanring
+  //   /* eslint-disable-next-line */
+  //   console.log(`Place card hovered`);
+  //   this.setState({ showBox: !this.state.showBox });
+  // }
+
 
   render() {
     return (
@@ -15,11 +29,16 @@ class PlacesList extends React.PureComponent {
       <section className="cities__places places">
         <h2 className="visually-hidden">Places</h2>
 
-        <b className="places__found" onClick={this.props.onTitleClickTest}>{this.props.placeListData.amsterdam.placesFound} places to stay in {this.props.placeListData.amsterdam.city}</b>
+        <b className="places__found"> {/* onClick={this.props.handlePlaceCardTitleClick} */}
+          {this.props.mockData.placesList.amsterdam.placesFound} places to stay in {this.props.mockData.placesList.amsterdam.city}
+        </b>
 
         <form className="places__sorting" action="#" method="get">
           <span className="places__sorting-caption">Sort by</span>
-          <span className="places__sorting-type" tabIndex={0}>Popular<svg className="places__sorting-arrow" width={7} height={4}><use xlinkHref="#icon-arrow-select" /></svg></span>
+          <span className="places__sorting-type" tabIndex={0}>
+            Popular
+            <svg className="places__sorting-arrow" width={7} height={4}><use xlinkHref="#icon-arrow-select" /></svg>
+          </span>
           <ul className="places__options places__options--custom places__options--opened">
             <li className="places__option places__option--active"tabIndex={0}>Popular</li>
             <li className="places__option" tabIndex={0}>Price: low to high</li>
@@ -39,19 +58,21 @@ class PlacesList extends React.PureComponent {
         </form>
         <div className="cities__places-list places__list tabs__content">
 
-          {Object.keys(this.props.placeCardData).map((placeID) => (
+          {Object.keys(this.props.mockData.placeOfferCard).map((placeID) => (
             <PlaceCard
+              handlePlaceCardTitleClick={this.props.handlePlaceCardTitleClick}
+              handlePlaceCardHover={this.props.handlePlaceCardHover}
               // key={placeID} // - а можно и так :)
-              key={this.props.placeCardData[placeID].id}
-              placeCardTitle={this.props.placeCardData[placeID].title}
-              placeCardPrice={this.props.placeCardData[placeID].price}
-              placeCardPricePer={this.props.placeCardData[placeID].pricePer}
-              placeCardCurrency={this.props.placeCardData[placeID].currency}
-              placeCardID={this.props.placeCardData[placeID].id}
-              placeCardType={this.props.placeCardData[placeID].type}
-              placeCardRating={this.props.placeCardData[placeID].rating}
-              placeCardBadge={this.props.placeCardData[placeID].badge}
-              placeCardThumbnail={this.props.placeCardData[placeID].thumbnail}
+              key={this.props.mockData.placeOfferCard[placeID].id}
+              placeCardTitle={this.props.mockData.placeOfferCard[placeID].title}
+              placeCardPrice={this.props.mockData.placeOfferCard[placeID].price}
+              placeCardPricePer={this.props.mockData.placeOfferCard[placeID].pricePer}
+              placeCardCurrency={this.props.mockData.placeOfferCard[placeID].currency}
+              placeCardID={this.props.mockData.placeOfferCard[placeID].id}
+              placeCardType={this.props.mockData.placeOfferCard[placeID].type}
+              placeCardRating={this.props.mockData.placeOfferCard[placeID].rating}
+              placeCardBadge={this.props.mockData.placeOfferCard[placeID].badge}
+              placeCardThumbnail={this.props.mockData.placeOfferCard[placeID].thumbnail}
             />
           ))}
 
@@ -60,31 +81,5 @@ class PlacesList extends React.PureComponent {
     );
   }
 }
-
-PlacesList.propTypes = {
-  onTitleClickTest: PropTypes.func.isRequired,
-
-  // place list
-  placeListData: PropTypes.objectOf(
-      PropTypes.shape({
-        city: PropTypes.string.isRequired,
-        placesFound: PropTypes.number.isRequired,
-      })
-  ).isRequired,
-
-  // place item
-  placeCardData: PropTypes.objectOf(PropTypes.shape({
-    price: PropTypes.number.isRequired,
-    pricePer: PropTypes.string.isRequired,
-    currency: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    badge: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired
-  })).isRequired
-
-};
 
 export default PlacesList;

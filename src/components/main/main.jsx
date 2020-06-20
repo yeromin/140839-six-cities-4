@@ -4,11 +4,7 @@ import PlacesList from '../placesList/placesList.jsx';
 
 
 const Main = (props) => {
-  const {
-    // numberFoundPlaces,
-    placeListData,
-    placeCardData,
-    onTitleClickTest} = props;
+  const {mockData, handlePlaceCardTitleClick, handlePlaceCardHover} = props;
 
   return (
     <React.Fragment>
@@ -108,10 +104,9 @@ const Main = (props) => {
             <div className="cities__places-container container">
 
               <PlacesList
-                // numberFoundPlaces={numberFoundPlaces}
-                placeListData={placeListData}
-                placeCardData={placeCardData}
-                onTitleClickTest={onTitleClickTest}
+                mockData={mockData}
+                handlePlaceCardTitleClick={handlePlaceCardTitleClick}
+                handlePlaceCardHover={handlePlaceCardHover}
               />
 
               <div className="cities__right-section">
@@ -127,28 +122,32 @@ const Main = (props) => {
 
 // ??? ругается, если вырубить тут валидацию
 Main.propTypes = {
-  onTitleClickTest: PropTypes.func.isRequired,
+  handlePlaceCardTitleClick: PropTypes.func.isRequired,
+  handlePlaceCardHover: PropTypes.func.isRequired,
 
-  // place list
-  placeListData: PropTypes.objectOf(
-      PropTypes.shape({
-        city: PropTypes.string.isRequired,
-        placesFound: PropTypes.number.isRequired,
-      })
-  ).isRequired,
+  mockData: PropTypes.shape({
 
-  // place item
-  placeCardData: PropTypes.objectOf(PropTypes.shape({
-    price: PropTypes.number.isRequired,
-    pricePer: PropTypes.string.isRequired,
-    currency: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    badge: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired
-  })).isRequired
+    // place list
+    placesList: PropTypes.objectOf(
+        PropTypes.shape({
+          city: PropTypes.string.isRequired,
+          placesFound: PropTypes.number.isRequired,
+        })
+    ).isRequired,
+
+    // place item
+    placeOfferCard: PropTypes.objectOf(PropTypes.shape({
+      price: PropTypes.number.isRequired,
+      pricePer: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      badge: PropTypes.string.isRequired,
+      thumbnail: PropTypes.string.isRequired
+    })).isRequired
+  })
 
 };
 
