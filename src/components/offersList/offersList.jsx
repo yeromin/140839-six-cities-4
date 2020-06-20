@@ -2,6 +2,7 @@
 
 import React from "react";
 import OfferCard from '../offerCard/offerCard.jsx';
+import PropTypes from 'prop-types';
 
 class OffersList extends React.PureComponent {
   constructor(props) {
@@ -26,6 +27,7 @@ class OffersList extends React.PureComponent {
       activeCard: currentCard
     });
 
+    /* eslint-disable-next-line */ // disable console.log wanring
     console.log(`Place card hovered from OffersList component`, currentCard);
 
     // ????????????????????? - what the fuck - some async staff???????
@@ -40,7 +42,7 @@ class OffersList extends React.PureComponent {
         <h2 className="visually-hidden">Places</h2>
 
         <b className="places__found">
-          {this.props.mockData.offersList.amsterdam.placesFound} 
+          {this.props.mockData.offersList.amsterdam.placesFound}
           &nbsp;places to stay in&nbsp;
           {this.props.mockData.offersList.amsterdam.city}
         </b>
@@ -83,5 +85,32 @@ class OffersList extends React.PureComponent {
     );
   }
 }
+
+
+OffersList.propTypes = {
+  handleOfferCardTitleClick: PropTypes.func.isRequired,
+  // handleOfferCardHover: PropTypes.func.isRequired,
+  mockData: PropTypes.shape({
+    // place list
+    offersList: PropTypes.objectOf(
+        PropTypes.shape({
+          city: PropTypes.string.isRequired,
+          placesFound: PropTypes.number.isRequired,
+        })
+    ).isRequired,
+    // place item
+    offerCard: PropTypes.objectOf(PropTypes.shape({
+      price: PropTypes.number.isRequired,
+      pricePer: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      badge: PropTypes.string.isRequired,
+      thumbnail: PropTypes.string.isRequired
+    })).isRequired
+  })
+};
 
 export default OffersList;

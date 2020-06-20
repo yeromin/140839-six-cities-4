@@ -7,14 +7,13 @@ const App = (props) => {
 
   const handleOfferCardTitleClick = (evt) => {
     evt.preventDefault();
-    // disable console.log wanring
-    /* eslint-disable-next-line */
+
+    /* eslint-disable-next-line */ // disable console.log wanring
     console.log(`The REAL function fired!`, evt.target);
   };
 
   // const handleOfferCardHover = () => {
-  //   // disable console.log wanring
-  //   /* eslint-disable-next-line */
+  //   /* eslint-disable-next-line */ // disable console.log wanring
   //   console.log(`Place card hovered`);
   // };
 
