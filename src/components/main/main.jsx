@@ -4,7 +4,7 @@ import OffersList from '../offersList/offersList.jsx';
 
 
 const Main = (props) => {
-  const {mockData, handleOfferCardTitleClick} = props; // handleOfferCardHover
+  const {mockData, handleOfferCardTitleClick} = props;
 
   return (
     <React.Fragment>
@@ -102,13 +102,49 @@ const Main = (props) => {
           </div>
           <div className="cities">
             <div className="cities__places-container container">
+              <section className="cities__places places">
+                <h2 className="visually-hidden">Places</h2>
 
-              <OffersList
-                mockData={mockData}
-                handleOfferCardTitleClick={handleOfferCardTitleClick}
-                // handleOfferCardHover={handleOfferCardHover}
-              />
+                <b className="places__found">
+                  {mockData.offersList.amsterdam.placesFound}
+                  &nbsp;places to stay in&nbsp;
+                  {mockData.offersList.amsterdam.city}
+                </b>
 
+                <form className="places__sorting" action="#" method="get">
+                  <span className="places__sorting-caption">Sort by</span>
+                  <span className="places__sorting-type" tabIndex={0}>
+                    Popular
+                    <svg className="places__sorting-arrow" width={7} height={4}>
+                      <use xlinkHref="#icon-arrow-select" />
+                    </svg>
+                  </span>
+                  <ul className="places__options places__options--custom places__options--opened">
+                    <li className="places__option places__option--active"tabIndex={0}>Popular</li>
+                    <li className="places__option" tabIndex={0}>Price: low to high</li>
+                    <li className="places__option" tabIndex={0}>Price: high to low</li>
+                    <li className="places__option" tabIndex={0}>Top rated first</li>
+                  </ul>
+
+                  {/*
+                <select class="places__sorting-type" id="places-sorting">
+                <option class="places__option" value="popular" selected="">Popular</option>
+                <option class="places__option" value="to-high">Price: low to high</option>
+                <option class="places__option" value="to-low">Price: high to low</option>
+                <option class="places__option" value="top-rated">Top rated first</option>
+                </select>
+                */}
+
+                </form>
+                <div className="cities__places-list places__list tabs__content">
+
+                  <OffersList
+                    mockData={mockData}
+                    handleOfferCardTitleClick={handleOfferCardTitleClick}
+                  />
+
+                </div>
+              </section>
               <div className="cities__right-section">
                 <section className="cities__map map" />
               </div>
@@ -122,10 +158,8 @@ const Main = (props) => {
 
 Main.propTypes = {
   handleOfferCardTitleClick: PropTypes.func.isRequired,
-  // handleOfferCardHover: PropTypes.func.isRequired,
 
   mockData: PropTypes.shape({
-
     // place list
     offersList: PropTypes.objectOf(
         PropTypes.shape({
@@ -133,7 +167,6 @@ Main.propTypes = {
           placesFound: PropTypes.number.isRequired,
         })
     ).isRequired,
-
     // place item
     offerCard: PropTypes.objectOf(PropTypes.shape({
       price: PropTypes.number.isRequired,

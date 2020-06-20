@@ -1,21 +1,20 @@
-/* eslint-disable */
 const mockData = {
-  offersList:{
+  offersList: {
     amsterdam: {
       city: `Amsterdam`,
       placesFound: 8912,
     },
-    paris:{
+    paris: {
       city: `Paris`,
-      placesFound:  197,
+      placesFound: 197,
     },
-    cologne:{
+    cologne: {
       city: `Cologne`,
-      placesFound:  861,
+      placesFound: 861,
     },
-    brussels:{
+    brussels: {
       city: `Brussels`,
-      placesFound:  881,
+      placesFound: 881,
     },
     hamburg: {
       city: `Hamburg`,
@@ -32,8 +31,8 @@ const mockData = {
       price: 190,
       pricePer: `Night`,
       currency: `$`,
-      title: 'Apartment in 3-star hotel (#6) Long-Stay discount',
-      id: '23423',
+      title: `Apartment in 3-star hotel (#6) Long-Stay discount`,
+      id: `23423`,
       type: `apartment`,
       rating: 4,
       badge: `Premium`,
@@ -43,8 +42,8 @@ const mockData = {
       price: 100,
       pricePer: `Night`,
       currency: `€`,
-      title: 'Einzelzimmer in München Innenstadt',
-      id: '56234',
+      title: `Einzelzimmer in München Innenstadt`,
+      id: `56234`,
       type: `apartment`,
       rating: 4.5,
       badge: `Premium`,
@@ -54,8 +53,8 @@ const mockData = {
       price: 200,
       pricePer: `Night`,
       currency: `€`,
-      title: 'Cozy room for singles, couples or friends',
-      id: '55234524',
+      title: `Cozy room for singles, couples or friends`,
+      id: `55234524`,
       type: `house`,
       rating: 3,
       badge: `Premium`,
@@ -65,8 +64,8 @@ const mockData = {
       price: 2500,
       pricePer: `Month`,
       currency: `$`,
-      title: 'Amazing Apartment ✨ Center Munich',
-      id: '4624234',
+      title: `Amazing Apartment ✨ Center Munich`,
+      id: `4624234`,
       type: `house`,
       rating: 5,
       badge: `LUXURY`,

@@ -1,6 +1,4 @@
-// component «Offer card»
 import React from 'react';
-
 
 const PlaceCard = (props) => {
 
