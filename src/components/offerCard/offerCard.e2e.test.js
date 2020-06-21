@@ -5,51 +5,42 @@ import OfferCard from './offerCard.jsx';
 
 Enzyme.configure({adapter: new Adapter()});
 
-const testMockData = {
-  price: 190,
-  pricePer: `Night`,
-  currency: `$`,
-  title: `3-star hotel`,
-  id: `23423`,
-  type: `apartment`,
-  rating: 4,
-  badge: `Premium`,
-  thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
+const offerCardMockData = {
+  0: {
+    badge: `Premium`,
+    currency: `$`,
+    id: `23423`,
+    price: 190,
+    pricePer: `Night`,
+    rating: 4,
+    thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`,
+    title: `Apartment in 3-star hotel (#6) Long-Stay discount`,
+    type: `apartment`
+  }
 };
 
-// mount - for nested components
-// shallow - does not render nested components
+describe(`OfferCard_click_End2End`, () => {
+  it(`Should test if place title has been clicked & Should test if place plate has been hovered`, () => {
 
-describe(`OfferCard_End2End`, () => {
-  it(`Should test if button clicked`, () => {
-
-    // create function for testing
     const handleOfferCardTitleClick = jest.fn();
-
+    const handleOfferCardHover = jest.fn();
     const wrapper = shallow(
-
         <OfferCard
           handleOfferCardTitleClick={handleOfferCardTitleClick}
-          // handleOfferCardHover={handleOfferCardHover}
-          offerCardMockData={testMockData}
+          handleOfferCardHover={handleOfferCardHover}
+          offerCardMockData={offerCardMockData}
         />
     );
 
     // get the real target
-    const targetBtn = wrapper.find(`.places__found`);
+    const targetBtn = wrapper.find(`.place-card__name > a`);
+    const placeCard = wrapper.find(`.place-card`);
 
-    // targetBtn.props().onClick(); // - this will also work
-
-    // simulate click for shallow:
     targetBtn.simulate(`click`);
+    placeCard.simulate(`mouseEnter`);
 
-    // simulate click for mount:
-    // targetBtn.simulate(`click`, {preventDefault() {}});
-
-    // long command:
-    // expect(handleOfferCardTitleClick.mock.calls.length).toBe(1);
-
-    // shortcut:
     expect(handleOfferCardTitleClick).toHaveBeenCalledTimes(1);
+    expect(handleOfferCardHover.mock.calls[0][0]).toMatchObject(offerCardMockData[0]);
   });
+
 });
