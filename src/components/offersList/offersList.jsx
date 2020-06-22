@@ -11,6 +11,7 @@ class OffersList extends React.PureComponent {
     };
 
     this.handleOfferCardHover = this.handleOfferCardHover.bind(this);
+
   }
 
   handleOfferCardHover(currentCard) {
@@ -24,7 +25,7 @@ class OffersList extends React.PureComponent {
   render() {
     return (
       <OfferCard
-        handleOfferCardTitleClick={this.props.handleOfferCardTitleClick}
+        onClickOfferCardTitle={this.props.onClickOfferCardTitle}
         handleOfferCardHover={this.handleOfferCardHover}
         offerCardMockData={this.props.mockData.offerCard}
       />
@@ -34,9 +35,9 @@ class OffersList extends React.PureComponent {
 
 
 OffersList.propTypes = {
-  handleOfferCardTitleClick: PropTypes.func.isRequired,
+  onClickOfferCardTitle: PropTypes.func.isRequired,
   mockData: PropTypes.shape({
-    offerCard: PropTypes.object.isRequired
+    offerCard: PropTypes.array.isRequired
   })
 };
 

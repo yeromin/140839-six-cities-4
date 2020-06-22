@@ -15,7 +15,7 @@ const App = (props) => {
     <React.Fragment>
       <Main
         mockData={mockData}
-        handleOfferCardTitleClick={handleOfferCardTitleClick}
+        onClickOfferCardTitle={handleOfferCardTitleClick}
       />
     </React.Fragment>
   );
@@ -24,7 +24,7 @@ const App = (props) => {
 // for some reason, ESLint shows error if I don't validate mockData below
 App.propTypes = {
   mockData: PropTypes.shape({
-    offerCard: PropTypes.object.isRequired
+    offerCard: PropTypes.array.isRequired
   })
 };
 

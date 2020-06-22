@@ -1,33 +1,6 @@
 const mockData = {
-  offersList: {
-    amsterdam: {
-      city: `Amsterdam`,
-      placesFound: 8912,
-    },
-    paris: {
-      city: `Paris`,
-      placesFound: 197,
-    },
-    cologne: {
-      city: `Cologne`,
-      placesFound: 861,
-    },
-    brussels: {
-      city: `Brussels`,
-      placesFound: 881,
-    },
-    hamburg: {
-      city: `Hamburg`,
-      placesFound: 2287,
-    },
-    dusseldorf: {
-      city: `Dusseldorf`,
-      placesFound: 98
-    }
-  },
-
-  offerCard: {
-    0: {
+  offerCard: [
+    {
       price: 190,
       pricePer: `Night`,
       currency: `$`,
@@ -38,7 +11,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    1: {
+    {
       price: 100,
       pricePer: `Night`,
       currency: `€`,
@@ -49,7 +22,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    2: {
+    {
       price: 200,
       pricePer: `Night`,
       currency: `€`,
@@ -60,7 +33,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    3: {
+    {
       price: 2500,
       pricePer: `Month`,
       currency: `$`,
@@ -71,7 +44,7 @@ const mockData = {
       badge: `LUXURY`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-  }
+  ]
 };
 
 export default mockData;

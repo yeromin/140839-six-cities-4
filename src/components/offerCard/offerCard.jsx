@@ -4,7 +4,7 @@ const PlaceCard = (props) => {
 
   /* eslint-disable react/prop-types */
   const {
-    handleOfferCardTitleClick,
+    onClickOfferCardTitle,
     handleOfferCardHover,
     offerCardMockData
   } = props;
@@ -54,7 +54,7 @@ const PlaceCard = (props) => {
               </div>
             </div>
             <h2 className="place-card__name">
-              <a href="#" onClick={handleOfferCardTitleClick}>{offerCardMockData[placeID].title}</a>
+              <a href="#" onClick={onClickOfferCardTitle}>{offerCardMockData[placeID].title}</a>
             </h2>
             <p className="place-card__type">{offerCardMockData[placeID].type}</p>
           </div>

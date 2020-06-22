@@ -4,7 +4,7 @@ import OffersList from '../offersList/offersList.jsx';
 
 
 const Main = (props) => {
-  const {mockData, handleOfferCardTitleClick} = props;
+  const {mockData, onClickOfferCardTitle} = props;
 
   return (
     <React.Fragment>
@@ -106,9 +106,9 @@ const Main = (props) => {
                 <h2 className="visually-hidden">Places</h2>
 
                 <b className="places__found">
-                  {mockData.offersList.amsterdam.placesFound}
+                  1111
                   &nbsp;places to stay in&nbsp;
-                  {mockData.offersList.amsterdam.city}
+                  Amsterdam
                 </b>
 
                 <form className="places__sorting" action="#" method="get">
@@ -140,7 +140,7 @@ const Main = (props) => {
 
                   <OffersList
                     mockData={mockData}
-                    handleOfferCardTitleClick={handleOfferCardTitleClick}
+                    onClickOfferCardTitle={onClickOfferCardTitle}
                   />
 
                 </div>
@@ -157,18 +157,10 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  handleOfferCardTitleClick: PropTypes.func.isRequired,
+  onClickOfferCardTitle: PropTypes.func.isRequired,
 
   mockData: PropTypes.shape({
-    // place list
-    offersList: PropTypes.objectOf(
-        PropTypes.shape({
-          city: PropTypes.string.isRequired,
-          placesFound: PropTypes.number.isRequired,
-        })
-    ).isRequired,
-    // place item
-    offerCard: PropTypes.objectOf(PropTypes.shape({
+    offerCard: PropTypes.arrayOf(PropTypes.shape({
       price: PropTypes.number.isRequired,
       pricePer: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
