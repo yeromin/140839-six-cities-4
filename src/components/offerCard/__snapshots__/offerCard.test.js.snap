@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`offerCard Component Offer card should render the proper place card 1`] = `
+exports[`offerCard_test Component Offer card should render the proper place card 1`] = `
 Array [
   <article
     className="cities__place-card place-card"
@@ -42,7 +42,7 @@ Array [
             className="place-card__price-value"
           >
             $
-            11190
+            190
           </b>
           <span
             className="place-card__price-text"
@@ -97,7 +97,6 @@ Array [
       >
         <a
           href="#"
-          onClick={[Function]}
         >
           Apartment in 3-star hotel (#6) Long-Stay discount
         </a>
@@ -204,7 +203,6 @@ Array [
       >
         <a
           href="#"
-          onClick={[Function]}
         >
           Einzelzimmer in MÃ¼nchen Innenstadt
         </a>
@@ -311,7 +309,6 @@ Array [
       >
         <a
           href="#"
-          onClick={[Function]}
         >
           Cozy room for singles, couples or friends
         </a>
@@ -418,7 +415,6 @@ Array [
       >
         <a
           href="#"
-          onClick={[Function]}
         >
           Amazing Apartment âœ¨ Center Munich
         </a>

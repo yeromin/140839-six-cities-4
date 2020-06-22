@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`appTest Component Main should render the whole App properly 1`] = `
+exports[`app_test Component Main should render the whole App properly 1`] = `
 Array [
   <div
     style={
@@ -205,9 +205,7 @@ Array [
             <b
               className="places__found"
             >
-              8912
-               places to stay in 
-              Amsterdam
+              1111  places to stay in  Amsterdam
             </b>
             <form
               action="#"

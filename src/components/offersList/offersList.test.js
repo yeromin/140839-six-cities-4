@@ -2,42 +2,15 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import OffersList from './offersList.jsx';
 
-const handleOfferCardTitleClick = (evt) => {
+const onClickOfferCardTitle = (evt) => {
   evt.preventDefault();
   /* eslint-disable-next-line */ // disable console.log wanring
   console.log(`The REAL function fired!`, evt.target);
 };
 
 const mockData = {
-  offersList: {
-    amsterdam: {
-      city: `Amsterdam`,
-      placesFound: 8912,
-    },
-    paris: {
-      city: `Paris`,
-      placesFound: 197,
-    },
-    cologne: {
-      city: `Cologne`,
-      placesFound: 861,
-    },
-    brussels: {
-      city: `Brussels`,
-      placesFound: 881,
-    },
-    hamburg: {
-      city: `Hamburg`,
-      placesFound: 2287,
-    },
-    dusseldorf: {
-      city: `Dusseldorf`,
-      placesFound: 98
-    }
-  },
-
-  offerCard: {
-    0: {
+  offerCard: [
+    {
       price: 190,
       pricePer: `Night`,
       currency: `$`,
@@ -48,7 +21,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    1: {
+    {
       price: 100,
       pricePer: `Night`,
       currency: `â‚¬`,
@@ -59,7 +32,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    2: {
+    {
       price: 200,
       pricePer: `Night`,
       currency: `â‚¬`,
@@ -70,7 +43,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    3: {
+    {
       price: 2500,
       pricePer: `Month`,
       currency: `$`,
@@ -81,15 +54,15 @@ const mockData = {
       badge: `LUXURY`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-  }
+  ]
 };
 
-describe(`OffersList`, () => {
+describe(`offersList_test`, () => {
   it(`Component OfferList should render the proper place card`, () => {
     const tree = renderer.create(
         <OffersList
           mockData={mockData}
-          handleOfferCardTitleClick={handleOfferCardTitleClick}
+          onClickOfferCardTitle={onClickOfferCardTitle}
         />)
       .toJSON();
     expect(tree).toMatchSnapshot();

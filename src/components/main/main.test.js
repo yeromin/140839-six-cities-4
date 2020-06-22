@@ -4,37 +4,11 @@ import Main from './main.jsx';
 
 
 /* eslint-disable-next-line */ // disable console.log wanring
-const handleOfferCardTitleClick = () => console.log(`Test click occurred`);
-const mockData = {
-  offersList: {
-    amsterdam: {
-      city: `Amsterdam`,
-      placesFound: 8912,
-    },
-    paris: {
-      city: `Paris`,
-      placesFound: 197,
-    },
-    cologne: {
-      city: `Cologne`,
-      placesFound: 861,
-    },
-    brussels: {
-      city: `Brussels`,
-      placesFound: 881,
-    },
-    hamburg: {
-      city: `Hamburg`,
-      placesFound: 2287,
-    },
-    dusseldorf: {
-      city: `Dusseldorf`,
-      placesFound: 98
-    }
-  },
+const onClickOfferCardTitle = () => console.log(`Test click occurred`);
 
-  offerCard: {
-    0: {
+const mockData = {
+  offerCard: [
+    {
       price: 190,
       pricePer: `Night`,
       currency: `$`,
@@ -45,7 +19,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    1: {
+    {
       price: 100,
       pricePer: `Night`,
       currency: `â‚¬`,
@@ -56,7 +30,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    2: {
+    {
       price: 200,
       pricePer: `Night`,
       currency: `â‚¬`,
@@ -67,7 +41,7 @@ const mockData = {
       badge: `Premium`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-    3: {
+    {
       price: 2500,
       pricePer: `Month`,
       currency: `$`,
@@ -78,14 +52,14 @@ const mockData = {
       badge: `LUXURY`,
       thumbnail: `https://source.unsplash.com/user/hutomoabrianto/260x300`
     },
-  }
+  ]
 };
 
-describe(`mainTest`, () => {
+describe(`main_test`, () => {
   it(`Component Main should render the proper Search result page`, () => {
     const mainTree = renderer.create(
         <Main
-          handleOfferCardTitleClick={handleOfferCardTitleClick}
+          onClickOfferCardTitle={onClickOfferCardTitle}
           mockData={mockData}
         />).toJSON();
     expect(mainTree).toMatchSnapshot();
