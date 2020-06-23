@@ -19,7 +19,7 @@ class OffersList extends React.PureComponent {
       activeCard: currentCard
     });
     /* eslint-disable-next-line */ // disable console.log wanring
-    console.log(`Place card hovered from OffersList component`, currentCard);
+    // console.log(`Place card hovered`, currentCard);
   }
 
   render() {
