@@ -1,11 +1,3 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import Main from './main.jsx';
-
-
-/* eslint-disable-next-line */ // disable console.log wanring
-const onClickOfferCardTitle = () => console.log(`Test click occurred`);
-
 const mockData = {
   offerCard: [
     {
@@ -22,8 +14,8 @@ const mockData = {
     {
       price: 100,
       pricePer: `Night`,
-      currency: `â‚¬`,
-      title: `Einzelzimmer in MÃ¼nchen Innenstadt`,
+      currency: `€`,
+      title: `Einzelzimmer in München Innenstadt`,
       id: `56234`,
       type: `apartment`,
       rating: 4.5,
@@ -33,7 +25,7 @@ const mockData = {
     {
       price: 200,
       pricePer: `Night`,
-      currency: `â‚¬`,
+      currency: `€`,
       title: `Cozy room for singles, couples or friends`,
       id: `55234524`,
       type: `house`,
@@ -45,7 +37,7 @@ const mockData = {
       price: 2500,
       pricePer: `Month`,
       currency: `$`,
-      title: `Amazing Apartment âœ¨ Center Munich`,
+      title: `Amazing Apartment ✨ Center Munich`,
       id: `4624234`,
       type: `house`,
       rating: 5,
@@ -55,13 +47,4 @@ const mockData = {
   ]
 };
 
-describe(`main_test`, () => {
-  it(`Component Main should render the proper Search result page`, () => {
-    const mainTree = renderer.create(
-        <Main
-          onClickOfferCardTitle={onClickOfferCardTitle}
-          mockData={mockData}
-        />).toJSON();
-    expect(mainTree).toMatchSnapshot();
-  });
-});
+export default mockData;

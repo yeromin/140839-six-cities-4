@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mainTest Component Main should render the proper Search result page 1`] = `
+exports[`main_test Component Main should render the proper Search result page 1`] = `
 Array [
   <div
     style={
@@ -204,10 +204,8 @@ Array [
             </h2>
             <b
               className="places__found"
-              onClick={[Function]}
             >
-              3333
-               places to stay in Amsterdam
+              1111  places to stay in  Amsterdam
             </b>
             <form
               action="#"
@@ -268,6 +266,8 @@ Array [
             >
               <article
                 className="cities__place-card place-card"
+                id="23423"
+                onMouseEnter={[Function]}
               >
                 <div
                   className="place-card__mark"
@@ -286,7 +286,7 @@ Array [
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-01.jpg"
+                      src="https://source.unsplash.com/user/hutomoabrianto/260x300"
                       width={260}
                     />
                   </a>
@@ -303,12 +303,14 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
-                        €120
+                        $
+                        190
                       </b>
                       <span
                         className="place-card__price-text"
                       >
-                        / night
+                        / 
+                        Night
                       </span>
                     </div>
                     <button
@@ -333,6 +335,7 @@ Array [
                   </div>
                   <div
                     className="place-card__rating rating"
+                    data-rating={4}
                   >
                     <div
                       className="place-card__stars rating__stars"
@@ -356,19 +359,22 @@ Array [
                   >
                     <a
                       href="#"
+                      onClick={[Function]}
                     >
-                      MOCK OF place name - Beautiful & luxurious
+                      Apartment in 3-star hotel (#6) Long-Stay discount
                     </a>
                   </h2>
                   <p
                     className="place-card__type"
                   >
-                    Apartment
+                    apartment
                   </p>
                 </div>
               </article>
               <article
                 className="cities__place-card place-card"
+                id="56234"
+                onMouseEnter={[Function]}
               >
                 <div
                   className="place-card__mark"
@@ -387,7 +393,7 @@ Array [
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-01.jpg"
+                      src="https://source.unsplash.com/user/hutomoabrianto/260x300"
                       width={260}
                     />
                   </a>
@@ -404,12 +410,14 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
-                        €120
+                        â‚¬
+                        100
                       </b>
                       <span
                         className="place-card__price-text"
                       >
-                        / night
+                        / 
+                        Night
                       </span>
                     </div>
                     <button
@@ -434,6 +442,7 @@ Array [
                   </div>
                   <div
                     className="place-card__rating rating"
+                    data-rating={4.5}
                   >
                     <div
                       className="place-card__stars rating__stars"
@@ -457,19 +466,22 @@ Array [
                   >
                     <a
                       href="#"
+                      onClick={[Function]}
                     >
-                      MOCK OF place name - Wood and stone place
+                      Einzelzimmer in MÃ¼nchen Innenstadt
                     </a>
                   </h2>
                   <p
                     className="place-card__type"
                   >
-                    Apartment
+                    apartment
                   </p>
                 </div>
               </article>
               <article
                 className="cities__place-card place-card"
+                id="55234524"
+                onMouseEnter={[Function]}
               >
                 <div
                   className="place-card__mark"
@@ -488,7 +500,7 @@ Array [
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-01.jpg"
+                      src="https://source.unsplash.com/user/hutomoabrianto/260x300"
                       width={260}
                     />
                   </a>
@@ -505,12 +517,14 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
-                        €120
+                        â‚¬
+                        200
                       </b>
                       <span
                         className="place-card__price-text"
                       >
-                        / night
+                        / 
+                        Night
                       </span>
                     </div>
                     <button
@@ -535,6 +549,7 @@ Array [
                   </div>
                   <div
                     className="place-card__rating rating"
+                    data-rating={3}
                   >
                     <div
                       className="place-card__stars rating__stars"
@@ -558,25 +573,28 @@ Array [
                   >
                     <a
                       href="#"
+                      onClick={[Function]}
                     >
-                      MOCK OF place name - apartment at great location
+                      Cozy room for singles, couples or friends
                     </a>
                   </h2>
                   <p
                     className="place-card__type"
                   >
-                    Apartment
+                    house
                   </p>
                 </div>
               </article>
               <article
                 className="cities__place-card place-card"
+                id="4624234"
+                onMouseEnter={[Function]}
               >
                 <div
                   className="place-card__mark"
                 >
                   <span>
-                    Premium
+                    LUXURY
                   </span>
                 </div>
                 <div
@@ -589,7 +607,7 @@ Array [
                       alt="Place image"
                       className="place-card__image"
                       height={200}
-                      src="img/apartment-01.jpg"
+                      src="https://source.unsplash.com/user/hutomoabrianto/260x300"
                       width={260}
                     />
                   </a>
@@ -606,12 +624,14 @@ Array [
                       <b
                         className="place-card__price-value"
                       >
-                        €120
+                        $
+                        2500
                       </b>
                       <span
                         className="place-card__price-text"
                       >
-                        / night
+                        / 
+                        Month
                       </span>
                     </div>
                     <button
@@ -636,6 +656,7 @@ Array [
                   </div>
                   <div
                     className="place-card__rating rating"
+                    data-rating={5}
                   >
                     <div
                       className="place-card__stars rating__stars"
@@ -659,115 +680,15 @@ Array [
                   >
                     <a
                       href="#"
+                      onClick={[Function]}
                     >
-                      MOCK OF place name - Beautiful & luxurious
+                      Amazing Apartment âœ¨ Center Munich
                     </a>
                   </h2>
                   <p
                     className="place-card__type"
                   >
-                    Apartment
-                  </p>
-                </div>
-              </article>
-              <article
-                className="cities__place-card place-card"
-              >
-                <div
-                  className="place-card__mark"
-                >
-                  <span>
-                    Premium
-                  </span>
-                </div>
-                <div
-                  className="cities__image-wrapper place-card__image-wrapper"
-                >
-                  <a
-                    href="#"
-                  >
-                    <img
-                      alt="Place image"
-                      className="place-card__image"
-                      height={200}
-                      src="img/apartment-01.jpg"
-                      width={260}
-                    />
-                  </a>
-                </div>
-                <div
-                  className="place-card__info"
-                >
-                  <div
-                    className="place-card__price-wrapper"
-                  >
-                    <div
-                      className="place-card__price"
-                    >
-                      <b
-                        className="place-card__price-value"
-                      >
-                        €120
-                      </b>
-                      <span
-                        className="place-card__price-text"
-                      >
-                        / night
-                      </span>
-                    </div>
-                    <button
-                      className="place-card__bookmark-button button"
-                      type="button"
-                    >
-                      <svg
-                        className="place-card__bookmark-icon"
-                        height={19}
-                        width={18}
-                      >
-                        <use
-                          xlinkHref="#icon-bookmark"
-                        />
-                      </svg>
-                      <span
-                        className="visually-hidden"
-                      >
-                        To bookmarks
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    className="place-card__rating rating"
-                  >
-                    <div
-                      className="place-card__stars rating__stars"
-                    >
-                      <span
-                        style={
-                          Object {
-                            "width": "80%",
-                          }
-                        }
-                      />
-                      <span
-                        className="visually-hidden"
-                      >
-                        Rating
-                      </span>
-                    </div>
-                  </div>
-                  <h2
-                    className="place-card__name"
-                  >
-                    <a
-                      href="#"
-                    >
-                      MOCK OF place name - apartment at great location
-                    </a>
-                  </h2>
-                  <p
-                    className="place-card__type"
-                  >
-                    Apartment
+                    house
                   </p>
                 </div>
               </article>

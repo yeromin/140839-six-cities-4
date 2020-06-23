@@ -1,10 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Main from './main.jsx';
+import OffersList from './offersList.jsx';
 
-
-/* eslint-disable-next-line */ // disable console.log wanring
-const onClickOfferCardTitle = () => console.log(`Test click occurred`);
+const onClickOfferCardTitle = (evt) => {
+  evt.preventDefault();
+  /* eslint-disable-next-line */ // disable console.log wanring
+  console.log(`The REAL function fired!`, evt.target);
+};
 
 const mockData = {
   offerCard: [
@@ -55,13 +57,14 @@ const mockData = {
   ]
 };
 
-describe(`main_test`, () => {
-  it(`Component Main should render the proper Search result page`, () => {
-    const mainTree = renderer.create(
-        <Main
-          onClickOfferCardTitle={onClickOfferCardTitle}
+describe(`offersList_test`, () => {
+  it(`Component OfferList should render the proper place card`, () => {
+    const tree = renderer.create(
+        <OffersList
           mockData={mockData}
-        />).toJSON();
-    expect(mainTree).toMatchSnapshot();
+          onClickOfferCardTitle={onClickOfferCardTitle}
+        />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

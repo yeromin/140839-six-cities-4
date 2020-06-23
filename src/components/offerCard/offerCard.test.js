@@ -1,12 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Main from './main.jsx';
+import OfferCard from './offerCard.jsx';
 
+const handleOfferCardTitleClick = (evt) => {
+  evt.preventDefault();
+  /* eslint-disable-next-line */ // disable console.log wanring
+  console.log(`The REAL function fired!`, evt.target);
+};
 
-/* eslint-disable-next-line */ // disable console.log wanring
-const onClickOfferCardTitle = () => console.log(`Test click occurred`);
+const handleOfferCardHover = (currentCard) => {
+  /* eslint-disable-next-line */ // disable console.log wanring
+  console.log(`Place card hovered from OffersList component`, currentCard);
+};
 
-const mockData = {
+const offerCardMockData = {
   offerCard: [
     {
       price: 190,
@@ -55,13 +62,14 @@ const mockData = {
   ]
 };
 
-describe(`main_test`, () => {
-  it(`Component Main should render the proper Search result page`, () => {
-    const mainTree = renderer.create(
-        <Main
-          onClickOfferCardTitle={onClickOfferCardTitle}
-          mockData={mockData}
+describe(`offerCard_test`, () => {
+  it(`Component Offer card should render the proper place card`, () => {
+    const tree = renderer.create(
+        <OfferCard
+          handleOfferCardTitleClick={handleOfferCardTitleClick}
+          handleOfferCardHover={handleOfferCardHover}
+          offerCardMockData={offerCardMockData.offerCard}
         />).toJSON();
-    expect(mainTree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 });

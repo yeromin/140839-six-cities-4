@@ -1,10 +1,10 @@
 import React from "react";
-import PlaceCard from '../placeCard/placeCard';
 import PropTypes from 'prop-types';
+import OffersList from '../offersList/offersList.jsx';
 
 
 const Main = (props) => {
-  const {numberFoundPlaces, placeCardName, onTitleClickTest} = props;
+  const {mockData, onClickOfferCardTitle} = props;
 
   return (
     <React.Fragment>
@@ -105,8 +105,10 @@ const Main = (props) => {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
 
-                <b className="places__found" onClick={onTitleClickTest}>
-                  {numberFoundPlaces} places to stay in Amsterdam
+                <b className="places__found">
+                  1111
+                  &nbsp;places to stay in&nbsp;
+                  Amsterdam
                 </b>
 
                 <form className="places__sorting" action="#" method="get">
@@ -118,41 +120,28 @@ const Main = (props) => {
                     </svg>
                   </span>
                   <ul className="places__options places__options--custom places__options--opened">
-                    <li
-                      className="places__option places__option--active"
-                      tabIndex={0}
-                    >
-                      Popular
-                    </li>
-                    <li className="places__option" tabIndex={0}>
-                      Price: low to high
-                    </li>
-                    <li className="places__option" tabIndex={0}>
-                      Price: high to low
-                    </li>
-                    <li className="places__option" tabIndex={0}>
-                      Top rated first
-                    </li>
+                    <li className="places__option places__option--active"tabIndex={0}>Popular</li>
+                    <li className="places__option" tabIndex={0}>Price: low to high</li>
+                    <li className="places__option" tabIndex={0}>Price: high to low</li>
+                    <li className="places__option" tabIndex={0}>Top rated first</li>
                   </ul>
+
                   {/*
-              <select class="places__sorting-type" id="places-sorting">
+                <select class="places__sorting-type" id="places-sorting">
                 <option class="places__option" value="popular" selected="">Popular</option>
                 <option class="places__option" value="to-high">Price: low to high</option>
                 <option class="places__option" value="to-low">Price: high to low</option>
                 <option class="places__option" value="top-rated">Top rated first</option>
-              </select>
-              */}
+                </select>
+                */}
+
                 </form>
                 <div className="cities__places-list places__list tabs__content">
 
-                  {placeCardName.map((placeCardTitle, i) => {
-                    return (
-                      <PlaceCard
-                        placeCardTitle={placeCardTitle}
-                        key = {i + 1}
-                      />
-                    );
-                  })}
+                  <OffersList
+                    mockData={mockData}
+                    onClickOfferCardTitle={onClickOfferCardTitle}
+                  />
 
                 </div>
               </section>
@@ -168,9 +157,22 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  numberFoundPlaces: PropTypes.number.isRequired,
-  placeCardName: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onTitleClickTest: PropTypes.func.isRequired
+  onClickOfferCardTitle: PropTypes.func.isRequired,
+
+  mockData: PropTypes.shape({
+    offerCard: PropTypes.arrayOf(PropTypes.shape({
+      price: PropTypes.number.isRequired,
+      pricePer: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      badge: PropTypes.string.isRequired,
+      thumbnail: PropTypes.string.isRequired
+    })).isRequired
+  })
+
 };
 
 export default Main;
