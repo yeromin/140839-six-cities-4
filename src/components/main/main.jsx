@@ -106,7 +106,7 @@ const Main = (props) => {
                 <h2 className="visually-hidden">Places</h2>
 
                 <b className="places__found">
-                  1111
+                  {mockData.offerCard.length}
                   &nbsp;places to stay in&nbsp;
                   Amsterdam
                 </b>

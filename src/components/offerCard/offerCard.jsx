@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const PlaceCard = (props) => {
 
@@ -19,7 +20,6 @@ const PlaceCard = (props) => {
           id={currItem.id}
           onMouseEnter={ (()=>handleOfferCardHover(currItem)) }
         >
-
           <div className="place-card__mark">
             <span>{currItem.badge}</span>
           </div>
@@ -49,13 +49,20 @@ const PlaceCard = (props) => {
                 <span className="visually-hidden">To bookmarks</span>
               </button>
             </div>
-            <div className="place-card__rating rating" data-rating={currItem.rating}>
-              <div className="place-card__stars rating__stars"><span style={{width: `80%`}} />
+            <div className="place-card__rating rating">
+              <div className="place-card__stars rating__stars"><span style={{width: `${(Math.round(currItem.rating) * 100) / 5}%`}} />
                 <span className="visually-hidden">Rating</span>
               </div>
             </div>
             <h2 className="place-card__name">
-              <a href="#" onClick={onClickOfferCardTitle}>{currItem.title}</a>
+              <Link
+                to={`dev-property/${encodeURI(currItem.title)}`}
+                // onClick= {onClickOfferCardTitle}
+                onClick={ (()=>onClickOfferCardTitle(currItem)) }
+              >
+                {currItem.title}
+              </Link>
+              {/* <a href="#" onClick={onClickOfferCardTitle}>{currItem.title}</a> */}
             </h2>
             <p className="place-card__type">{currItem.type}</p>
           </div>
