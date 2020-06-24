@@ -1,8 +1,34 @@
 import React from 'react';
 
-const Property = (props) => {
+// hard solution for not showing more than 6 images
+class PropertyImages extends React.PureComponent {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <React.Fragment>
+        {this.props.img.map((curr, i) => (
+          i < 6 ?
+            <div key={i + 1} className="property__image-wrapper">
+              <img className="property__image" src={curr} alt="Photo studio" />
+            </div>
+            :
+            null
+        ))}
+      </React.Fragment>
+    );
+  }
+}
 
-  console.log(props.currCard);
+const Property = (props) => {
+  const propertyID = props.match.params.id;
+  const arr = props.mockData.offerCard;
+  const currentItem = arr.find(x => x.id === propertyID);
+  const arrDescription = currentItem.description.split(/(\.)/gi);
+  const arrDescriptionSentenses = arrDescription.filter((val) => {
+    return val !== `.`;
+  });
 
   return (
     <React.Fragment>
@@ -38,22 +64,18 @@ const Property = (props) => {
               <div className="property__gallery-container container">
                 <div className="property__gallery">
 
-                  {(props.currCard.images).map((currItem, i) => (
-                    <div key={i + 1} className="property__image-wrapper">
-                      <img className="property__image" src={currItem} alt="Photo studio" />
-                    </div>
-                  ))}
+                  <PropertyImages img={currentItem.images} />
 
                 </div>
               </div>
               <div className="property__container container">
                 <div className="property__wrapper">
                   <div className="property__mark">
-                    <span>{props.currCard.badge}</span>
+                    <span>{currentItem.badge}</span>
                   </div>
                   <div className="property__name-wrapper">
                     <h1 className="property__name">
-                      {props.currCard.title}
+                      {currentItem.title}
                     </h1>
                     <button className="property__bookmark-button button" type="button">
                       <svg className="property__bookmark-icon" width={31} height={33}>
@@ -64,31 +86,31 @@ const Property = (props) => {
                   </div>
                   <div className="property__rating rating">
                     <div className="property__stars rating__stars">
-                      <span style={{width: `${(Math.round(props.currCard.rating) * 100) / 5}%`}} />
+                      <span style={{width: `${(Math.round(currentItem.rating) * 100) / 5}%`}} />
                       <span className="visually-hidden">Rating</span>
                     </div>
-                    <span className="property__rating-value rating__value">{props.currCard.rating}</span>
+                    <span className="property__rating-value rating__value">{currentItem.rating}</span>
                   </div>
                   <ul className="property__features">
                     <li className="property__feature property__feature--entire">
-                      {props.currCard.type}
+                      {currentItem.type}
                     </li>
                     <li className="property__feature property__feature--bedrooms">
-                      {props.currCard.bedrooms} Bedrooms
+                      {currentItem.bedrooms} Bedrooms
                     </li>
                     <li className="property__feature property__feature--adults">
-                      Max {props.currCard.people} adults
+                      Max {currentItem.people} adults
                     </li>
                   </ul>
                   <div className="property__price">
-                    <b className="property__price-value">{props.currCard.currency}{props.currCard.price}</b>
-                    <span className="property__price-text">&nbsp;{props.currCard.pricePer}</span>
+                    <b className="property__price-value">&euro;{currentItem.price}</b>
+                    <span className="property__price-text">&nbsp;{currentItem.pricePer}</span>
                   </div>
                   <div className="property__inside">
                     <h2 className="property__inside-title">What`s inside</h2>
                     <ul className="property__inside-list">
 
-                      {props.currCard.facilities.map((curr, i) => (
+                      {currentItem.facilities.map((curr, i) => (
                         <li key={i} className="property__inside-item">
                           {curr}
                         </li>
@@ -99,20 +121,20 @@ const Property = (props) => {
                   <div className="property__host">
                     <h2 className="property__host-title">Meet the host</h2>
                     <div className="property__host-user user">
-                      <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                        <img className="property__avatar user__avatar" src="../img/avatar-angelina.jpg" width={74} height={74} alt="Host avatar" />
+                      <div className={`property__avatar-wrapper ${currentItem.hostBadge === `superhost` ? `property__avatar-wrapper--pro` : null} user__avatar-wrapper`}>
+                        <img className="property__avatar user__avatar" src={currentItem.ownerAvatar} width={74} height={74} alt="Host avatar" />
                       </div>
                       <span className="property__user-name">
                         Angelina
                       </span>
                     </div>
                     <div className="property__description">
-                      <p className="property__text">
-                        A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                      </p>
-                      <p className="property__text">
-                        An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
-                      </p>
+
+                      {arrDescriptionSentenses.map((curr, i) => (
+                        <p className="property__text" key={i + currentItem.id}>
+                          {curr}
+                        </p>
+                      ))}
                     </div>
                   </div>
                   <section className="property__reviews reviews">
@@ -294,6 +316,5 @@ const Property = (props) => {
     </React.Fragment>
   );
 };
-
 
 export default Property;

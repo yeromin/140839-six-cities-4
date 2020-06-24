@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import OfferCard from './offerCard.jsx';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 const handleOfferCardTitleClick = (evt) => {
   evt.preventDefault();
@@ -65,11 +66,18 @@ const offerCardMockData = {
 describe(`offerCard_test`, () => {
   it(`Component Offer card should render the proper place card`, () => {
     const tree = renderer.create(
-        <OfferCard
-          handleOfferCardTitleClick={handleOfferCardTitleClick}
-          handleOfferCardHover={handleOfferCardHover}
-          offerCardMockData={offerCardMockData.offerCard}
-        />).toJSON();
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <OfferCard
+                handleOfferCardTitleClick={handleOfferCardTitleClick}
+                handleOfferCardHover={handleOfferCardHover}
+                offerCardMockData={offerCardMockData.offerCard}
+              />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

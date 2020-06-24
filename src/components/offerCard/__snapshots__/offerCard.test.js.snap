@@ -73,7 +73,6 @@ Array [
       </div>
       <div
         className="place-card__rating rating"
-        data-rating={4}
       >
         <div
           className="place-card__stars rating__stars"
@@ -96,7 +95,8 @@ Array [
         className="place-card__name"
       >
         <a
-          href="#"
+          href="/dev-property/23423"
+          onClick={[Function]}
         >
           Apartment in 3-star hotel (#6) Long-Stay discount
         </a>
@@ -179,7 +179,6 @@ Array [
       </div>
       <div
         className="place-card__rating rating"
-        data-rating={4.5}
       >
         <div
           className="place-card__stars rating__stars"
@@ -187,7 +186,7 @@ Array [
           <span
             style={
               Object {
-                "width": "80%",
+                "width": "100%",
               }
             }
           />
@@ -202,7 +201,8 @@ Array [
         className="place-card__name"
       >
         <a
-          href="#"
+          href="/dev-property/56234"
+          onClick={[Function]}
         >
           Einzelzimmer in MÃ¼nchen Innenstadt
         </a>
@@ -285,7 +285,6 @@ Array [
       </div>
       <div
         className="place-card__rating rating"
-        data-rating={3}
       >
         <div
           className="place-card__stars rating__stars"
@@ -293,7 +292,7 @@ Array [
           <span
             style={
               Object {
-                "width": "80%",
+                "width": "60%",
               }
             }
           />
@@ -308,7 +307,8 @@ Array [
         className="place-card__name"
       >
         <a
-          href="#"
+          href="/dev-property/55234524"
+          onClick={[Function]}
         >
           Cozy room for singles, couples or friends
         </a>
@@ -391,7 +391,6 @@ Array [
       </div>
       <div
         className="place-card__rating rating"
-        data-rating={5}
       >
         <div
           className="place-card__stars rating__stars"
@@ -399,7 +398,7 @@ Array [
           <span
             style={
               Object {
-                "width": "80%",
+                "width": "100%",
               }
             }
           />
@@ -414,7 +413,8 @@ Array [
         className="place-card__name"
       >
         <a
-          href="#"
+          href="/dev-property/4624234"
+          onClick={[Function]}
         >
           Amazing Apartment âœ¨ Center Munich
         </a>

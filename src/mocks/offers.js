@@ -22,14 +22,16 @@ const mockData = {
       bedrooms: 2,
       people: 3,
       facilities: [`1111Wi-Fi`, `Dishwasher`, `Cabel TV`, `Fridge`],
-      descriptio: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century. An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`
+      description: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century. An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.`,
+      ownerAvatar: `../img/avatar-angelina.jpg`,
+      hostBadge: `superhost`
     },
     {
       city: `amsterdam`,
       price: 100,
       pricePer: `Night`,
       currency: `€`,
-      title: `Einzelzimmer in München Innenstadt`,
+      title: `Einzelzimmer in Munich Innenstadt`,
       id: `56234`,
       type: `apartment`,
       rating: 2.3,
@@ -46,7 +48,9 @@ const mockData = {
       bedrooms: 1,
       people: 4,
       facilities: [`Dishwasher`, `Cabel TV`, `Fridge`, `222Wi-Fi`, `Washing machine`, `Towels`, `Heating`, `Coffee machine`, `Baby seat`, `Kitchen`],
-      descriptio: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
+      description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
+      ownerAvatar: `../img/avatar-angelina.jpg`,
+      hostBadge: `superhost`
     },
     {
       city: `amsterdam`,
@@ -70,7 +74,9 @@ const mockData = {
       bedrooms: 4,
       people: 1,
       facilities: [`333Wi-Fi`, `Washing machine`, `Towels`, `Heating`, `Coffee machine`, `Baby seat`, `Kitchen`, `Dishwasher`, `Cabel TV`, `Fridge`],
-      descriptio: `Our spacious 150 square meters apartment is located in the beautiful historical part of Kiev, the most central location. It is a newly renovated apartment with all the new and fresh amenities for your comfortable stay.Flat located on 5th floor (please note there is no elevator), from the windows you can spot hotel "Ukraine" which is located on the Maidan square. 2 mins walk to the National Opera House, 5 mins walk to Khreshatyk Street and Arena City.`
+      description: `Our spacious 150 square meters apartment is located in the beautiful historical part of Kiev, the most central location. It is a newly renovated apartment with all the new and fresh amenities for your comfortable stay.Flat located on 5th floor (please note there is no elevator), from the windows you can spot hotel "Ukraine" which is located on the Maidan square. 2 mins walk to the National Opera House, 5 mins walk to Khreshatyk Street and Arena City.`,
+      ownerAvatar: `../img/avatar-angelina.jpg`,
+      hostBadge: `superhost`
     },
     {
       city: `amsterdam`,
@@ -95,7 +101,9 @@ const mockData = {
       bedrooms: 3,
       people: 2,
       facilities: [`444Wi-Fi`, `Washing machine`, `Towels`, `Heating`, `Coffee machine`, `Baby seat`, `Kitchen`, `Dishwasher`, `Cabel TV`, `Fridge`],
-      descriptio: `Designers Spacious 2 Level Penthouse with pedestal jumbo jacuzzi hot tub perfectly located next to Khreschatyk facing Arena City. Has 1 king-size bed 1 single bed and 2 sleeping sofas will easily accommodate up to 6 guests. Fully equipped with bathroom amenities and kitchen cutleries. Satellite dish with multiple multilingual channels. Free High speed WiFi internet for browsing and video conference business meetings. Flexible cancellation policy and friendly responsive host! Welcome Aboard!!!`
+      description: `Designers Spacious 2 Level Penthouse with pedestal jumbo jacuzzi hot tub perfectly located next to Khreschatyk facing Arena City. Has 1 king-size bed 1 single bed and 2 sleeping sofas will easily accommodate up to 6 guests. Fully equipped with bathroom amenities and kitchen cutleries. Satellite dish with multiple multilingual channels. Free High speed WiFi internet for browsing and video conference business meetings. Flexible cancellation policy and friendly responsive host! Welcome Aboard!!!`,
+      ownerAvatar: `../img/avatar-max.jpg`,
+      hostBadge: null
     },
   ]
 };

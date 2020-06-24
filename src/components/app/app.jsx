@@ -18,7 +18,7 @@ class App extends React.PureComponent {
   handleOfferCardTitleClick(currCard) {
     this.setState({active: currCard});
     /* eslint-disable-next-line */ // disable console.log wanring
-    console.log(`The handle-Offer-Card-Title-Click function fired!`);
+    console.log(`The handleOfferCardTitleClick function fired`);
   }
 
   render() {
@@ -33,10 +33,8 @@ class App extends React.PureComponent {
             />
           </Route>
 
-          <Route exact path="/dev-property/:title">
-            <Property
-              currCard={this.state.active}
-            />
+          <Route exact path="/dev-property/:id" >
+            {(props) => <Property {...props} mockData={this.props.mockData}/>}
           </Route>
 
         </Switch>
@@ -46,7 +44,6 @@ class App extends React.PureComponent {
   }
 }
 
-// for some reason, ESLint shows error if I don't validate mockData below
 App.propTypes = {
   mockData: PropTypes.shape({
     offerCard: PropTypes.array.isRequired

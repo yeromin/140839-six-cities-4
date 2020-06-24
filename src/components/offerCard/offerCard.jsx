@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const PlaceCard = (props) => {
 
-  /* eslint-disable react/prop-types */
   const {
     onClickOfferCardTitle,
     handleOfferCardHover,
@@ -56,13 +56,11 @@ const PlaceCard = (props) => {
             </div>
             <h2 className="place-card__name">
               <Link
-                to={`dev-property/${encodeURI(currItem.title)}`}
-                // onClick= {onClickOfferCardTitle}
-                onClick={ (()=>onClickOfferCardTitle(currItem)) }
+                to={`dev-property/${encodeURI(currItem.id)}`}
+                onClick={onClickOfferCardTitle}
               >
                 {currItem.title}
               </Link>
-              {/* <a href="#" onClick={onClickOfferCardTitle}>{currItem.title}</a> */}
             </h2>
             <p className="place-card__type">{currItem.type}</p>
           </div>
@@ -72,6 +70,13 @@ const PlaceCard = (props) => {
     </React.Fragment>
 
   );
+};
+
+
+PlaceCard.propTypes = {
+  onClickOfferCardTitle: PropTypes.func,
+  handleOfferCardHover: PropTypes.func.isRequired,
+  offerCardMockData: PropTypes.array.isRequired
 };
 
 

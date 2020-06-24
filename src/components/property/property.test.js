@@ -1,7 +1,7 @@
 import React from 'react';
-import App from './app.jsx';
 import renderer from 'react-test-renderer';
-
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Property from './property';
 
 const mockData = {
   offerCard: [
@@ -112,19 +112,18 @@ const mockData = {
     },
   ]
 };
-const handleOfferCardTitleClick = (evt) => {
-  evt.preventDefault();
-  /* eslint-disable-next-line */ // disable console.log wanring
-  console.log(`The REAL function fired!`, evt.target);
-};
 
-describe(`app_test`, () => {
-  it(`Component Main should render the whole App properly`, () => {
-    const mainTree = renderer.create(
-        <App
-          mockData={mockData}
-          handleOfferCardTitleClick={handleOfferCardTitleClick}
-        />).toJSON();
-    expect(mainTree).toMatchSnapshot();
+describe(`property_test`, () => {
+  it(`Component Property should render the proper Property page`, () => {
+    const tree = renderer.create(
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/dev-property/:id" >
+              {(props) => <Property {...props} mockData={mockData}/>}
+            </Route>
+          </Switch>
+        </BrowserRouter>
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

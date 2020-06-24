@@ -12,6 +12,8 @@ class OffersList extends React.PureComponent {
 
     this.handleOfferCardHover = this.handleOfferCardHover.bind(this);
 
+    console.log(props);
+    
   }
 
   handleOfferCardHover(currentCard) {
@@ -19,7 +21,7 @@ class OffersList extends React.PureComponent {
       activeCard: currentCard
     });
     /* eslint-disable-next-line */ // disable console.log wanring
-    // console.log(`Place card hovered`, currentCard);
+    console.log(`Place card hovered`, currentCard);
   }
 
   render() {
