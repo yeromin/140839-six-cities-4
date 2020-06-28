@@ -36,7 +36,6 @@ const offerCardMockData = [
   }
 ];
 
-
 const currentHoveredCard = {
   city: `amsterdam`,
   price: 190,
@@ -64,8 +63,8 @@ const currentHoveredCard = {
   hostBadge: `superhost`
 };
 
-describe(`OfferCard_click_End2End`, () => {
-  it(`Should test if place title has been clicked & Should test if place plate has been hovered`, () => {
+describe(`OfferCard_hover_e2e`, () => {
+  it(`Should test if we get the data of the hovered card`, () => {
 
     const handleOfferCardTitleClick = jest.fn();
     const handleOfferCardHover = jest.fn();
@@ -84,16 +83,36 @@ describe(`OfferCard_click_End2End`, () => {
     );
 
     // get the real target
-    // const targetBtn = wrapper.find(Link);
-    
     const placeCard = wrapper.find(`.place-card`);
 
-    // targetBtn.simulate(`click`);
     placeCard.simulate(`mouseEnter`);
 
-    // expect(targetBtn.to).toBe(`dev-property/${encodeURI(offerCardMockData[0].id)}`);
-    // expect(handleOfferCardTitleClick).toHaveBeenCalledTimes(1);
     expect(handleOfferCardHover.mock.calls[0][0]).toMatchObject(currentHoveredCard);
   });
+});
 
+
+describe(`OfferCard_click_e2e`, () => {
+  it(`Should test if place title Link has the correct URL`, () => {
+
+    const handleOfferCardTitleClick = jest.fn();
+    const handleOfferCardHover = jest.fn();
+    const wrapper = mount(
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" >
+              <OfferCard
+                onClickOfferCardTitle={handleOfferCardTitleClick}
+                handleOfferCardHover={handleOfferCardHover}
+                offerCardMockData={offerCardMockData}
+              />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+    );
+
+    // get the real target
+    const title = wrapper.find(Link);
+    expect(title.props().to).toBe(`dev-property/${encodeURI(offerCardMockData[0].id)}`);
+  });
 });

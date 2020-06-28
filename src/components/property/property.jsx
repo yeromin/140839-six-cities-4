@@ -1,34 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// hard solution for not showing more than 6 images
-class PropertyImages extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <React.Fragment>
-        {this.props.img.map((curr, i) => (
-          i < 6 ?
-            <div key={i + 1} className="property__image-wrapper">
-              <img className="property__image" src={curr} alt="Photo studio" />
-            </div>
-            :
-            null
-        ))}
-      </React.Fragment>
-    );
-  }
-}
+const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: arr}}) => {
 
-const Property = (props) => {
-  const propertyID = props.match.params.id;
-  const arr = props.mockData.offerCard;
-  const currentItem = arr.find(x => x.id === propertyID);
+  const currentItem = arr.find(({id}) => id === propertyID);
   const arrDescription = currentItem.description.split(/(\.)/gi);
   const arrDescriptionSentenses = arrDescription.filter((val) => {
     return val !== `.`;
   });
+
+  const {id, badge, type, bedrooms, people, hostBadge, ownerAvatar, images, rating, price, pricePer, title, facilities} = currentItem;
+
+  const IMG_COUNT = 6;
 
   return (
     <React.Fragment>
@@ -61,21 +44,30 @@ const Property = (props) => {
           </header>
           <main className="page__main page__main--property">
             <section className="property">
+
               <div className="property__gallery-container container">
                 <div className="property__gallery">
 
-                  <PropertyImages img={currentItem.images} />
+                  {images.slice(0, IMG_COUNT).map((imgSrc, index) => {
+                    return (
+                      <div key={index} className="property__image-wrapper">
+                        <img className="property__image" src={imgSrc} alt="Photo studio" />
+                      </div>
+                    );
+                  })}
 
                 </div>
               </div>
+
+
               <div className="property__container container">
                 <div className="property__wrapper">
                   <div className="property__mark">
-                    <span>{currentItem.badge}</span>
+                    <span>{badge}</span>
                   </div>
                   <div className="property__name-wrapper">
                     <h1 className="property__name">
-                      {currentItem.title}
+                      {title}
                     </h1>
                     <button className="property__bookmark-button button" type="button">
                       <svg className="property__bookmark-icon" width={31} height={33}>
@@ -86,31 +78,31 @@ const Property = (props) => {
                   </div>
                   <div className="property__rating rating">
                     <div className="property__stars rating__stars">
-                      <span style={{width: `${(Math.round(currentItem.rating) * 100) / 5}%`}} />
+                      <span style={{width: `${(Math.round(rating) * 100) / 5}%`}} />
                       <span className="visually-hidden">Rating</span>
                     </div>
-                    <span className="property__rating-value rating__value">{currentItem.rating}</span>
+                    <span className="property__rating-value rating__value">{rating}</span>
                   </div>
                   <ul className="property__features">
                     <li className="property__feature property__feature--entire">
-                      {currentItem.type}
+                      {type}
                     </li>
                     <li className="property__feature property__feature--bedrooms">
-                      {currentItem.bedrooms} Bedrooms
+                      {bedrooms} Bedrooms
                     </li>
                     <li className="property__feature property__feature--adults">
-                      Max {currentItem.people} adults
+                      Max {people} adults
                     </li>
                   </ul>
                   <div className="property__price">
-                    <b className="property__price-value">&euro;{currentItem.price}</b>
-                    <span className="property__price-text">&nbsp;{currentItem.pricePer}</span>
+                    <b className="property__price-value">&euro;{price}</b>
+                    <span className="property__price-text">&nbsp;{pricePer}</span>
                   </div>
                   <div className="property__inside">
                     <h2 className="property__inside-title">What`s inside</h2>
                     <ul className="property__inside-list">
 
-                      {currentItem.facilities.map((curr, i) => (
+                      {facilities.map((curr, i) => (
                         <li key={i} className="property__inside-item">
                           {curr}
                         </li>
@@ -121,8 +113,8 @@ const Property = (props) => {
                   <div className="property__host">
                     <h2 className="property__host-title">Meet the host</h2>
                     <div className="property__host-user user">
-                      <div className={`property__avatar-wrapper ${currentItem.hostBadge === `superhost` ? `property__avatar-wrapper--pro` : null} user__avatar-wrapper`}>
-                        <img className="property__avatar user__avatar" src={currentItem.ownerAvatar} width={74} height={74} alt="Host avatar" />
+                      <div className={`property__avatar-wrapper ${hostBadge === `superhost` ? `property__avatar-wrapper--pro` : null} user__avatar-wrapper`}>
+                        <img className="property__avatar user__avatar" src={ownerAvatar} width={74} height={74} alt="Host avatar" />
                       </div>
                       <span className="property__user-name">
                         Angelina
@@ -131,10 +123,11 @@ const Property = (props) => {
                     <div className="property__description">
 
                       {arrDescriptionSentenses.map((curr, i) => (
-                        <p className="property__text" key={i + currentItem.id}>
+                        <p className="property__text" key={i + id}>
                           {curr}
                         </p>
                       ))}
+
                     </div>
                   </div>
                   <section className="property__reviews reviews">
@@ -197,7 +190,7 @@ const Property = (props) => {
                           </svg>
                         </label>
                       </div>
-                      <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" defaultValue={""} />
+                      <textarea className="reviews__textarea form__textarea" id="review" name="review" placeholder="Tell how was your stay, what you like and what can be improved" defaultValue={``} />
                       <div className="reviews__button-wrapper">
                         <p className="reviews__help">
                           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.
@@ -315,6 +308,18 @@ const Property = (props) => {
       </div>
     </React.Fragment>
   );
+};
+
+
+Property.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired,
+  mockData: PropTypes.shape({
+    offerCard: PropTypes.array.isRequired
+  })
 };
 
 export default Property;

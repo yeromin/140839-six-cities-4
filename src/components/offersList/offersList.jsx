@@ -12,8 +12,6 @@ class OffersList extends React.PureComponent {
 
     this.handleOfferCardHover = this.handleOfferCardHover.bind(this);
 
-    console.log(props);
-    
   }
 
   handleOfferCardHover(currentCard) {
