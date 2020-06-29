@@ -17,8 +17,6 @@ class App extends React.PureComponent {
 
   handleOfferCardTitleClick(currCard) {
     this.setState({active: currCard});
-    /* eslint-disable-next-line */ // disable console.log wanring
-    console.log(`The handleOfferCardTitleClick function fired`);
   }
 
   render() {

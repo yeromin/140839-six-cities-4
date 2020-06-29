@@ -114,8 +114,6 @@ const mockData = {
 };
 const handleOfferCardTitleClick = (evt) => {
   evt.preventDefault();
-  /* eslint-disable-next-line */ // disable console.log wanring
-  console.log(`The REAL function fired!`, evt.target);
 };
 
 describe(`app_test`, () => {

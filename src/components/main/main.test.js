@@ -3,8 +3,7 @@ import renderer from 'react-test-renderer';
 import Main from './main.jsx';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-/* eslint-disable-next-line */ // disable console.log wanring
-const onClickOfferCardTitle = () => console.log(`Test click occurred`);
+const onClickOfferCardTitle = () => true;
 
 const mockData = {
   offerCard: [

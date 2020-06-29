@@ -5,8 +5,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 const onClickOfferCardTitle = (evt) => {
   evt.preventDefault();
-  /* eslint-disable-next-line */ // disable console.log wanring
-  console.log(`The REAL function fired!`, evt.target);
 };
 
 const mockData = {

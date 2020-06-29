@@ -18,8 +18,7 @@ class OffersList extends React.PureComponent {
     this.setState({
       activeCard: currentCard
     });
-    /* eslint-disable-next-line */ // disable console.log wanring
-    console.log(`Place card hovered`, currentCard);
+    return currentCard;
   }
 
   render() {
