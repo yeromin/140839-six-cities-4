@@ -106,7 +106,7 @@ const Main = (props) => {
                 <h2 className="visually-hidden">Places</h2>
 
                 <b className="places__found">
-                  1111
+                  {mockData.offerCard.length}
                   &nbsp;places to stay in&nbsp;
                   Amsterdam
                 </b>
@@ -166,7 +166,7 @@ Main.propTypes = {
       currency: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
+      type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
       rating: PropTypes.number.isRequired,
       badge: PropTypes.string.isRequired,
       thumbnail: PropTypes.string.isRequired

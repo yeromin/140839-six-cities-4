@@ -1,16 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import OfferCard from './offerCard.jsx';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 const handleOfferCardTitleClick = (evt) => {
   evt.preventDefault();
-  /* eslint-disable-next-line */ // disable console.log wanring
-  console.log(`The REAL function fired!`, evt.target);
 };
 
 const handleOfferCardHover = (currentCard) => {
-  /* eslint-disable-next-line */ // disable console.log wanring
-  console.log(`Place card hovered from OffersList component`, currentCard);
+  return currentCard;
 };
 
 const offerCardMockData = {
@@ -65,11 +63,18 @@ const offerCardMockData = {
 describe(`offerCard_test`, () => {
   it(`Component Offer card should render the proper place card`, () => {
     const tree = renderer.create(
-        <OfferCard
-          handleOfferCardTitleClick={handleOfferCardTitleClick}
-          handleOfferCardHover={handleOfferCardHover}
-          offerCardMockData={offerCardMockData.offerCard}
-        />).toJSON();
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <OfferCard
+                handleOfferCardTitleClick={handleOfferCardTitleClick}
+                handleOfferCardHover={handleOfferCardHover}
+                offerCardMockData={offerCardMockData.offerCard}
+              />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

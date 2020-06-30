@@ -1,11 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import OffersList from './offersList.jsx';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-
-const onClickOfferCardTitle = (evt) => {
-  evt.preventDefault();
-};
+import Property from './property';
 
 const mockData = {
   offerCard: [
@@ -117,16 +113,13 @@ const mockData = {
   ]
 };
 
-describe(`offersList_test`, () => {
-  it(`Component OfferList should render the proper place card`, () => {
+describe(`property_test`, () => {
+  it(`Component Property should render the proper Property page`, () => {
     const tree = renderer.create(
         <BrowserRouter>
           <Switch>
-            <Route exact path="/">
-              <OffersList
-                mockData={mockData}
-                onClickOfferCardTitle={onClickOfferCardTitle}
-              />
+            <Route exact path="/dev-property/:id" >
+              {(props) => <Property {...props} mockData={mockData}/>}
             </Route>
           </Switch>
         </BrowserRouter>

@@ -1,27 +1,47 @@
 import React from 'react';
 import Main from '../main/main.jsx';
 import PropTypes from 'prop-types';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Property from '../property/property.jsx';
 
-const App = (props) => {
-  const {mockData} = props;
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  const handleOfferCardTitleClick = (evt) => {
-    evt.preventDefault();
-    /* eslint-disable-next-line */ // disable console.log wanring
-    console.log(`The REAL function fired!`, evt.target);
-  };
+    this.state = {
+      active: null
+    };
 
-  return (
-    <React.Fragment>
-      <Main
-        mockData={mockData}
-        onClickOfferCardTitle={handleOfferCardTitleClick}
-      />
-    </React.Fragment>
-  );
-};
+    this.handleOfferCardTitleClick = this.handleOfferCardTitleClick.bind(this);
+  }
 
-// for some reason, ESLint shows error if I don't validate mockData below
+  handleOfferCardTitleClick(currCard) {
+    this.setState({active: currCard});
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+
+        <Switch>
+          <Route exact path="/">
+            <Main
+              mockData={this.props.mockData}
+              onClickOfferCardTitle={this.handleOfferCardTitleClick}
+            />
+          </Route>
+
+          <Route exact path="/dev-property/:id" >
+            {(props) => <Property {...props} mockData={this.props.mockData}/>}
+          </Route>
+
+        </Switch>
+
+      </BrowserRouter>
+    );
+  }
+}
+
 App.propTypes = {
   mockData: PropTypes.shape({
     offerCard: PropTypes.array.isRequired
