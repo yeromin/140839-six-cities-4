@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import OffersList from '../offersList/offersList.jsx';
+import Map from '../map/map.jsx';
 
 
 const Main = (props) => {
@@ -145,9 +146,9 @@ const Main = (props) => {
 
                 </div>
               </section>
-              <div className="cities__right-section">
-                <section className="cities__map map" />
-              </div>
+
+              <Map mockData={mockData} />
+
             </div>
           </div>
         </main>
