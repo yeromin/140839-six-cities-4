@@ -1,3 +1,7 @@
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Map from './map.jsx';
+
 const mockData = {
   offerCard: [
     {
@@ -31,7 +35,7 @@ const mockData = {
       city: `amsterdam`,
       price: 100,
       pricePer: `Night`,
-      currency: `€`,
+      currency: `â‚¬`,
       title: `Einzelzimmer in Munich Innenstadt`,
       id: `56234`,
       type: `apartment`,
@@ -58,7 +62,7 @@ const mockData = {
       city: `amsterdam`,
       price: 200,
       pricePer: `Night`,
-      currency: `€`,
+      currency: `â‚¬`,
       title: `Cozy room for singles, couples or friends`,
       id: `55234524`,
       type: `house`,
@@ -86,7 +90,7 @@ const mockData = {
       price: 2500,
       pricePer: `Month`,
       currency: `$`,
-      title: `Amazing Apartment ✨ Center Munich`,
+      title: `Amazing Apartment âœ¨ Center Munich`,
       id: `4624234`,
       type: `house`,
       rating: 3.8,
@@ -112,4 +116,14 @@ const mockData = {
   ]
 };
 
-export default mockData;
+describe(`map_test`, () => {
+  it(`Component map should render the map with markers`, () => {
+    const mapTree = renderer.create(
+        <Map mockData={mockData}/>,
+        {
+          createNodeMock: () => document.createElement(`div`)
+        }
+    ).toJSON();
+    expect(mapTree).toMatchSnapshot();
+  });
+});
