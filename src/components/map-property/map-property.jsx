@@ -12,10 +12,9 @@ class Map extends PureComponent {
   componentDidMount() {
     const city = [52.38333, 4.9];
     const icon = leaflet.icon({
-      iconUrl: `img/pin.svg`,
+      iconUrl: `../../img/pin.svg`,
       iconSize: [27, 39]
     });
-
     const zoom = 13;
     const map = leaflet.map(this._mapContainer.current, {
       center: city,
@@ -42,7 +41,7 @@ class Map extends PureComponent {
   render() {
     return (
       <section className="map" style={{width: `100%`}}>
-        <div id="map" style={{height: `100%`}} ref={this._mapContainer}></div>
+        <div id="map" style={{height: `700px`}} ref={this._mapContainer}></div>
       </section>
     );
   }
