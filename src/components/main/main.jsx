@@ -7,7 +7,8 @@ import Map from '../map/map.jsx';
 const Main = (props) => {
   const {mockData, onClickOfferCardTitle} = props;
 
-  // console.log(`main: `, mockData.offerCard);
+  // console.log(mockData.offerCard);
+  const locationArr = mockData.offerCard.map((curr) => curr.location);
 
   return (
     <React.Fragment>
@@ -149,7 +150,7 @@ const Main = (props) => {
                 </div>
               </section>
 
-              <Map mockDataArr={mockData.offerCard} />
+              <Map locationArr={locationArr} htmlclass={`map`} width={`100%`} height={`100%`} />
 
             </div>
           </div>

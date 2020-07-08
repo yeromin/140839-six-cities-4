@@ -15,6 +15,8 @@ const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: arr}
 
   const {id, badge, type, bedrooms, people, hostBadge, ownerAvatar, images, rating, price, pricePer, title, facilities} = currentItem;
 
+  const locationArr = currentItem.locationNearby;
+
   return (
     <React.Fragment>
       <div>
@@ -138,8 +140,7 @@ const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: arr}
                 </div>
               </div>
 
-
-              <Map mockDataArr={arr} />
+              <Map locationArr={locationArr} htmlclass={`property__map map`} width={`100%`} height={`579px`} />
 
             </section>
 
