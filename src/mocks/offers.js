@@ -34,7 +34,7 @@ const mockData = {
           name: `Alex`,
           avatar: `../img/avatar-max.jpg`,
           id: 0,
-          date: `April 2018`
+          date: `April 24 2018`
         },
         {
           text: `It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum`,
@@ -42,7 +42,87 @@ const mockData = {
           name: `Lena`,
           avatar: `../img/avatar-angelina.jpg`,
           id: 3,
-          date: `April 2020`
+          date: `December 2 2000`
+        },
+        {
+          text: `It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum`,
+          rating: 5,
+          name: `Lena`,
+          avatar: `../img/avatar-angelina.jpg`,
+          id: 3,
+          date: `May 12 2020`
+        },
+        {
+          text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+          rating: 3,
+          name: `Alex`,
+          avatar: `../img/avatar-max.jpg`,
+          id: 0,
+          date: `April 24 2001`
+        },
+        {
+          text: `It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum`,
+          rating: 5,
+          name: `Lena`,
+          avatar: `../img/avatar-angelina.jpg`,
+          id: 3,
+          date: `December 2 2007`
+        },
+        {
+          text: `It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum`,
+          rating: 5,
+          name: `Lena`,
+          avatar: `../img/avatar-angelina.jpg`,
+          id: 3,
+          date: `May 12 2009`
+        },
+        {
+          text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+          rating: 3,
+          name: `Alex`,
+          avatar: `../img/avatar-max.jpg`,
+          id: 0,
+          date: `April 24 2013`
+        },
+        {
+          text: `It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum`,
+          rating: 5,
+          name: `Lena`,
+          avatar: `../img/avatar-angelina.jpg`,
+          id: 3,
+          date: `December 2 2010`
+        },
+        {
+          text: `It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum`,
+          rating: 5,
+          name: `Lena`,
+          avatar: `../img/avatar-angelina.jpg`,
+          id: 3,
+          date: `May 12 2012`
+        },
+        {
+          text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+          rating: 3,
+          name: `Alex`,
+          avatar: `../img/avatar-max.jpg`,
+          id: 0,
+          date: `April 24 2003`
+        },
+        {
+          text: `It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum`,
+          rating: 5,
+          name: `Lena`,
+          avatar: `../img/avatar-angelina.jpg`,
+          id: 3,
+          date: `December 2 2010`
+        },
+        {
+          text: `It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum`,
+          rating: 5,
+          name: `Lena`,
+          avatar: `../img/avatar-angelina.jpg`,
+          id: 3,
+          date: `May 12 2012`
         }
       ]
     },
@@ -81,7 +161,7 @@ const mockData = {
           name: `Paul`,
           avatar: `../img/avatar-max.jpg`,
           id: 0,
-          date: `October 2019`
+          date: `October 11 2019`
         },
         {
           text: `Half a year later and still Hilton hotel did not refund the money thats was overcharged. Most likely people like Volcan Amac steal money from customers this way.
@@ -90,7 +170,7 @@ const mockData = {
           name: `Angela`,
           avatar: `../img/avatar-angelina.jpg`,
           id: 2,
-          date: `September 2019`
+          date: `September 5 2019`
         }
       ]
     },
@@ -128,7 +208,7 @@ const mockData = {
           name: `Alla`,
           avatar: `../img/avatar-angelina.jpg`,
           id: 0,
-          date: `March 2020`
+          date: `January 17 2002`
         },
         {
           text: `Good enogh`,
@@ -136,7 +216,15 @@ const mockData = {
           name: `Alex`,
           avatar: `../img/avatar-max.jpg`,
           id: 1,
-          date: `March 2020`
+          date: `October 1 2018`
+        },
+        {
+          text: `Good enogh`,
+          rating: 1,
+          name: `Alex`,
+          avatar: `../img/avatar-max.jpg`,
+          id: 1,
+          date: `March 12 2020`
         }
       ]
     },

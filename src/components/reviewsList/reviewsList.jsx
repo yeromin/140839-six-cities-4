@@ -1,13 +1,14 @@
 import React from 'react';
 import ReviewsItem from '../reviewsItem/reviewsItem.jsx';
+import propTypes from 'prop-types';
 
 const ReviewsList = (props) => {
 
   const {currentPlaceData} = props;
-  const reviews = currentPlaceData.reviews;
-  const totalReviews = reviews ? reviews.length : false;
+  const reviews = currentPlaceData.reviews !== null ? currentPlaceData.reviews : [];
+  const sortedActivities = (reviews.sort((a, b) => new Date(b.date) - new Date(a.date))).slice(0, 10);
 
-  if (!totalReviews) {
+  if (sortedActivities.length < 1) {
     return (
       <section className="property__reviews reviews">
         <h2 className="reviews__title">There&apos;s no Reviews so far</h2>
@@ -17,7 +18,7 @@ const ReviewsList = (props) => {
 
   return (
     <section className="property__reviews reviews">
-      <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{`${totalReviews}`}</span></h2>
+      <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{`${sortedActivities.length}`}</span></h2>
       <ul className="reviews__list">
         <ReviewsItem reviews={reviews} />
       </ul>
@@ -65,6 +66,12 @@ const ReviewsList = (props) => {
       </form>
     </section>
   );
+};
+
+ReviewsList.propTypes = {
+  currentPlaceData: propTypes.shape({
+    reviews: propTypes.array
+  })
 };
 
 export default ReviewsList;

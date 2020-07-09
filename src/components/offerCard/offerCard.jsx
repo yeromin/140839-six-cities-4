@@ -88,12 +88,17 @@ const PlaceCard = ({
 
 PlaceCard.propTypes = {
   onClickOfferCardTitle: PropTypes.func,
-  handleOfferCardHover: PropTypes.func.isRequired,
+  handleOfferCardHover: PropTypes.func,
   offerCardMockData: PropTypes.array.isRequired,
 };
 
 PlaceCard.defaultProps = {
   onClickOfferCardTitle: ()=>{}
+};
+
+// TODO: handle this func in the <Property /> component
+PlaceCard.defaultProps = {
+  handleOfferCardHover: ()=>{}
 };
 
 export default PlaceCard;
