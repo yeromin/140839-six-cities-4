@@ -1,12 +1,13 @@
 import React from 'react';
 import ReviewsItem from '../reviewsItem/reviewsItem.jsx';
 import propTypes from 'prop-types';
+import MAX_REVIEWS_COUNT from '../../constant_variables';
 
 const ReviewsList = (props) => {
 
   const {currentPlaceData} = props;
   const reviews = currentPlaceData.reviews !== null ? currentPlaceData.reviews : [];
-  const sortedActivities = (reviews.sort((a, b) => new Date(b.date) - new Date(a.date))).slice(0, 10);
+  const sortedActivities = reviews.slice(0, MAX_REVIEWS_COUNT).sort((a, b) => new Date(b.date) - new Date(a.date));
 
   if (sortedActivities.length < 1) {
     return (

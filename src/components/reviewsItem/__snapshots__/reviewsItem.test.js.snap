@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reviewsItem_test Component ReviewsItem should render the proper review item 1`] = `
+Array [
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height={54}
+          src="../img/avatar-max.jpg"
+          width={54}
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Paul
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        is the best five star hotel and Ukraine, I spent 10 days during quarantine.
+    The front desk staff was absolutely magnificent. Oleksandra and Veronika Gave me first class accommodations, upgraded me to a magnificent room free of charge, always very polite and constantly made sure that my stay was absolutely magnificent.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2019-04-24"
+      >
+        October 11 2019
+      </time>
+    </div>
+  </li>,
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height={54}
+          src="../img/avatar-angelina.jpg"
+          width={54}
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Angela
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "80%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        Half a year later and still Hilton hotel did not refund the money thats was overcharged. Most likely people like Volcan Amac steal money from customers this way.
+    Lovely hotel but reception was rude, lazy and impolite. Check your credit card payment, I was overcharged eur 80 on a eur 400 per night room and despite promises and  credit invoice it was never returned.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2019-04-24"
+      >
+        September 5 2019
+      </time>
+    </div>
+  </li>,
+]
+`;
