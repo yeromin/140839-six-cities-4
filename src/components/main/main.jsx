@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offersList/offersList.jsx';
 import Map from '../map/map.jsx';
@@ -6,6 +6,9 @@ import Map from '../map/map.jsx';
 
 const Main = (props) => {
   const {mockData, onClickOfferCardTitle} = props;
+
+  // console.log(mockData.offerCard);
+  const locationArr = mockData.offerCard.map((curr) => curr.location);
 
   return (
     <React.Fragment>
@@ -147,7 +150,7 @@ const Main = (props) => {
                 </div>
               </section>
 
-              <Map mockData={mockData} />
+              <Map locationArr={locationArr} htmlclass={`map`} width={`100%`} height={`100%`} />
 
             </div>
           </div>
@@ -163,14 +166,14 @@ Main.propTypes = {
   mockData: PropTypes.shape({
     offerCard: PropTypes.arrayOf(PropTypes.shape({
       price: PropTypes.number.isRequired,
+      rating: PropTypes.number.isRequired,
       pricePer: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-      type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired,
-      rating: PropTypes.number.isRequired,
       badge: PropTypes.string.isRequired,
-      thumbnail: PropTypes.string.isRequired
+      thumbnail: PropTypes.string.isRequired,
+      type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired
     })).isRequired
   })
 
