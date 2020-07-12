@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 const PlaceCard = ({
   onClickOfferCardTitle,
   handleOfferCardHover,
-  offerCardMockData,
+  offerCardData,
 }) => {
   return (
     <React.Fragment>
-      {offerCardMockData.map((currItem) => {
+      {offerCardData.map((currItem) => {
 
         const {id, badge, currency, price, pricePer, thumbnail, rating, title, type} = currItem;
 
@@ -89,7 +89,7 @@ const PlaceCard = ({
 PlaceCard.propTypes = {
   onClickOfferCardTitle: PropTypes.func,
   handleOfferCardHover: PropTypes.func,
-  offerCardMockData: PropTypes.array.isRequired,
+  offerCardData: PropTypes.array.isRequired,
 };
 
 PlaceCard.defaultProps = {

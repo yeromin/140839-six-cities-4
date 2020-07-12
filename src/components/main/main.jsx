@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offersList/offersList.jsx';
 import Map from '../map/map.jsx';
-
+import CityListTabs from '../cityListTabs/cityListTabs.jsx';
+import {connect} from 'react-redux';
 
 const Main = (props) => {
   const {mockData, onClickOfferCardTitle} = props;
-
-  // console.log(mockData.offerCard);
   const locationArr = mockData.offerCard.map((curr) => curr.location);
+
+  console.log(`Main props: `, props);
 
   return (
     <React.Fragment>
@@ -68,51 +69,21 @@ const Main = (props) => {
         </header>
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          <div className="tabs">
-            <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div>
+
+          <CityListTabs
+            currentCity={props.currentCity}
+            allAvailableProperties={mockData.offerCard}
+          />
+
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
 
                 <b className="places__found">
-                  {mockData.offerCard.length}
+                  {props.offersListForCurrentCity.length}
                   &nbsp;places to stay in&nbsp;
-                  Amsterdam
+                  {props.currentCity}
                 </b>
 
                 <form className="places__sorting" action="#" method="get">
@@ -143,7 +114,7 @@ const Main = (props) => {
                 <div className="cities__places-list places__list tabs__content">
 
                   <OffersList
-                    mockData={mockData}
+                    offersListForCurrentCity={props.offersListForCurrentCity}
                     onClickOfferCardTitle={onClickOfferCardTitle}
                   />
 
@@ -163,6 +134,9 @@ const Main = (props) => {
 Main.propTypes = {
   onClickOfferCardTitle: PropTypes.func.isRequired,
 
+  currentCity: PropTypes.string.isRequired,
+  offersListForCurrentCity: PropTypes.array.isRequired,
+
   mockData: PropTypes.shape({
     offerCard: PropTypes.arrayOf(PropTypes.shape({
       price: PropTypes.number.isRequired,
@@ -179,4 +153,13 @@ Main.propTypes = {
 
 };
 
-export default Main;
+
+const mapStateToProps = (state) => {
+  return {
+    currentCity: state.city,
+    offersListForCurrentCity: state.offersList
+  };
+};
+
+
+export default connect(mapStateToProps, null)(Main);
