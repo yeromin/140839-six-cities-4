@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
-const PlaceCard = ({
+const OfferCard = ({
   onClickOfferCardTitle,
   handleOfferCardHover,
   offerCardData,
@@ -86,19 +86,19 @@ const PlaceCard = ({
   );
 };
 
-PlaceCard.propTypes = {
+OfferCard.propTypes = {
   onClickOfferCardTitle: PropTypes.func,
   handleOfferCardHover: PropTypes.func,
   offerCardData: PropTypes.array.isRequired,
 };
 
-PlaceCard.defaultProps = {
+OfferCard.defaultProps = {
   onClickOfferCardTitle: ()=>{}
 };
 
 // TODO: handle this func in the <Property /> component
-PlaceCard.defaultProps = {
+OfferCard.defaultProps = {
   handleOfferCardHover: ()=>{}
 };
 
-export default PlaceCard;
+export default OfferCard;

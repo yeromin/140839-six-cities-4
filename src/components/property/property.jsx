@@ -8,15 +8,15 @@ import OfferCard from '../offerCard/offerCard.jsx';
 
 const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: dataArr}}) => {
 
+  // console.log(dataArr);
+
   const currentItem = dataArr.find(({id}) => id === propertyID);
-  const arrDescription = currentItem.description.split(/(\.)/gi);
-  const arrDescriptionSentenses = arrDescription.filter((val) => {
-    return val !== `.`;
-  });
+  // const arrDescription = currentItem.description.split(/(\.)/gi);
+  // const arrDescriptionSentenses = arrDescription.filter((val) => {
+  //   return val !== `.`;
+  // });
 
-  const {id, badge, type, bedrooms, people, hostBadge, ownerAvatar, images, rating, price, pricePer, title, facilities} = currentItem;
-
-  const locationArr = currentItem.locationNearby;
+  const {id, badge, type, bedrooms, people, hostBadge, ownerAvatar, images, rating, price, pricePer, title, facilities, description, locationNearby, cityCoordinates} = currentItem;
 
   return (
     <React.Fragment>
@@ -126,13 +126,7 @@ const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: data
                       </span>
                     </div>
                     <div className="property__description">
-
-                      {arrDescriptionSentenses.map((curr, i) => (
-                        <p className="property__text" key={i + id}>
-                          {curr}
-                        </p>
-                      ))}
-
+                      <p className="property__text">{description}</p>
                     </div>
                   </div>
 
@@ -141,7 +135,7 @@ const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: data
                 </div>
               </div>
 
-              <Map locationArr={locationArr} htmlclass={`property__map map`} width={`100%`} height={`579px`} />
+              <Map locationArr={locationNearby} htmlclass={`property__map map`} width={`100%`} height={`579px`} zoom={13} cityCoordinates={cityCoordinates}/>
 
             </section>
 
@@ -151,7 +145,7 @@ const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: data
                 <div className="near-places__list places__list">
 
                   <OfferCard
-                    offerCardMockData={dataArr.slice(0, 3)}
+                    offerCardData={dataArr.slice(0, 3)}
                   />
 
                 </div>

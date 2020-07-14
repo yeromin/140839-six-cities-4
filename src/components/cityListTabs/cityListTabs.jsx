@@ -1,11 +1,12 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const CityListTabs = ({allAvailableProperties, currentCity}) => {
 
   const allCitiesList = allAvailableProperties.map((offer) => offer.city.toUpperCase());
   const allUniqueCitiesList = Array.from(new Set(allCitiesList));
 
+  // console.log(`allCitiesList: `, allCitiesList);
   // console.log(`CityListTabs allAvailableProperties: `, allAvailableProperties);
   // console.log(`CityListTabs allCities: `, allUniqueCitiesList);
   // console.log(`CityListTabs currentCity: `, currentCity);

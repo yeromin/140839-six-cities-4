@@ -7,9 +7,8 @@ import {connect} from 'react-redux';
 
 const Main = (props) => {
   const {mockData, onClickOfferCardTitle} = props;
-  const locationArr = mockData.offerCard.map((curr) => curr.location);
-
-  console.log(`Main props: `, props);
+  const locationArr = props.offersListForCurrentCity.map((curr) => curr.location);
+  const cityCoordinates = props.offersListForCurrentCity[0].cityCoordinates;
 
   return (
     <React.Fragment>
@@ -121,7 +120,7 @@ const Main = (props) => {
                 </div>
               </section>
 
-              <Map locationArr={locationArr} htmlclass={`map`} width={`100%`} height={`100%`} />
+              <Map locationArr={locationArr} htmlclass={`map`} width={`50%`} height={`100%`} zoom={12} cityCoordinates={cityCoordinates}/>
 
             </div>
           </div>
@@ -150,7 +149,6 @@ Main.propTypes = {
       type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired
     })).isRequired
   })
-
 };
 
 
@@ -161,5 +159,9 @@ const mapStateToProps = (state) => {
   };
 };
 
+// const mapDispatchToProps = (dispatch) => ({
+//   onCityChange: (city) => dispatch(setCity(city)),
+//   onOffersChange: (offers) => dispatch(setOffers(offers)),
+// });
 
-export default connect(mapStateToProps, null)(Main);
+export default connect(mapStateToProps, null)(Main); //mapDispatchToProps
