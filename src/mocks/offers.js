@@ -178,6 +178,7 @@ const mockData = {
     },
     {
       city: `Paris`,
+      cityCoordinates: [48.864716, 2.349014],
       price: 100,
       pricePer: `Night`,
       currency: `€`,
@@ -201,7 +202,7 @@ const mockData = {
       description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
       ownerAvatar: `../img/avatar-angelina.jpg`,
       hostBadge: `superhost`,
-      location: [52.369553943508, 4.85309666406198],
+      location: [48.863716, 2.389014],
       locationNearby: [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3809553943508, 4.939309666406198]],
       reviews: [
         {
@@ -250,7 +251,7 @@ const mockData = {
       description: `Our spacious 150 square meters apartment is located in the beautiful historical part of Kiev, the most central location. It is a newly renovated apartment with all the new and fresh amenities for your comfortable stay.Flat located on 5th floor (please note there is no elevator), from the windows you can spot hotel "Ukraine" which is located on the Maidan square. 2 mins walk to the National Opera House, 5 mins walk to Khreshatyk Street and Arena City.`,
       ownerAvatar: `../img/avatar-angelina.jpg`,
       hostBadge: `superhost`,
-      location: [52.3909553943508, 4.929309666406198],
+      location: [48.833716, 2.386014],
       locationNearby: [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3809553943508, 4.939309666406198]],
       reviews: [
         {

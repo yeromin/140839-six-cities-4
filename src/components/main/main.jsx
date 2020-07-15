@@ -70,7 +70,6 @@ const Main = (props) => {
           <h1 className="visually-hidden">Cities</h1>
 
           <CityListTabs
-            currentCity={props.currentCity}
             allAvailableProperties={mockData.offerCard}
           />
 
@@ -120,7 +119,14 @@ const Main = (props) => {
                 </div>
               </section>
 
-              <Map locationArr={locationArr} htmlclass={`map`} width={`50%`} height={`100%`} zoom={12} cityCoordinates={cityCoordinates}/>
+              <Map
+                locationArr={locationArr}
+                htmlclass={`map`}
+                width={`50%`}
+                height={`100%`}
+                zoom={12}
+                cityCoordinates={cityCoordinates}
+              />
 
             </div>
           </div>
@@ -152,16 +158,10 @@ Main.propTypes = {
 };
 
 
-const mapStateToProps = (state) => {
-  return {
-    currentCity: state.city,
-    offersListForCurrentCity: state.offersList
-  };
-};
+const mapStateToProps = (state) => ({
+  currentCity: state.city,
+  offersListForCurrentCity: state.offersList
+});
 
-// const mapDispatchToProps = (dispatch) => ({
-//   onCityChange: (city) => dispatch(setCity(city)),
-//   onOffersChange: (offers) => dispatch(setOffers(offers)),
-// });
-
-export default connect(mapStateToProps, null)(Main); //mapDispatchToProps
+export {Main};
+export default connect(mapStateToProps, null)(Main);

@@ -20,11 +20,12 @@ const initialState = {
 // ACTIONS
 const actionType = {
   CHANGE_CITY: `CHANGE_CITY`,
-  GET_OFFERS: `GET_OFFERS_FOR_THE_CITY`,
+  GET_OFFERS: `GET_OFFERS`,
 };
 
 const actionCreator = {
   changeCity: (city = initialState.city) => {
+    console.log(`actionCreator: `, city);
     return {
       type: actionType.CHANGE_CITY,
       payload: city

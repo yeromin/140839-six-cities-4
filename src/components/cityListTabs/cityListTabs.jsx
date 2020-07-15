@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {actionCreator} from '../../Store/reducer';
 
-const CityListTabs = ({allAvailableProperties, currentCity}) => {
+const CityListTabs = ({allAvailableProperties, currentCity, handleCityClick}) => {
 
   const allCitiesList = allAvailableProperties.map((offer) => offer.city.toUpperCase());
   const allUniqueCitiesList = Array.from(new Set(allCitiesList));
-
-  // console.log(`allCitiesList: `, allCitiesList);
-  // console.log(`CityListTabs allAvailableProperties: `, allAvailableProperties);
-  // console.log(`CityListTabs allCities: `, allUniqueCitiesList);
-  // console.log(`CityListTabs currentCity: `, currentCity);
-
   const toSentenceCase = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   };
 
+  const handleCityClick = (city) => {
+
+  }
+  
   return (
     <div className="tabs">
       <section className="locations container">
@@ -27,7 +27,13 @@ const CityListTabs = ({allAvailableProperties, currentCity}) => {
                   `locations__item-link
                   tabs__item
                   ${currentCity.toLowerCase() === curr.toLowerCase() ? `tabs__item--active` : ``}`
-                } href="#">
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log(toSentenceCase(curr));
+                  handleCityClick(toSentenceCase(curr));
+                }}
+                href="#">
                   <span>{toSentenceCase(curr)}</span>
                 </a>
               </li>
@@ -41,8 +47,22 @@ const CityListTabs = ({allAvailableProperties, currentCity}) => {
 };
 
 CityListTabs.propTypes = {
-  allAvailableProperties: PropTypes.arrayOf(PropTypes.object).isRequired,
-  currentCity: PropTypes.string.isRequired
+  currentCity: PropTypes.string.isRequired,
+  handleCityClick: PropTypes.func.isRequired,
+  allAvailableProperties: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default CityListTabs;
+
+const mapStateToProps = (state) => ({
+  currentCity: state.city
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  handleCityClick(currCity) {
+    dispatch(actionCreator.changeCity(currCity));
+  }
+});
+
+
+export {CityListTabs};
+export default connect(mapStateToProps, mapDispatchToProps)(CityListTabs);
