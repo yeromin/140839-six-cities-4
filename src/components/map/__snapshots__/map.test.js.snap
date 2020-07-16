@@ -5,7 +5,7 @@ exports[`map_test Component map should render the map with markers 1`] = `
   className="map"
   style={
     Object {
-      "width": "100%",
+      "width": "50%",
     }
   }
 >

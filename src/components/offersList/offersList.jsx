@@ -35,9 +35,6 @@ class OffersList extends React.PureComponent {
 
 OffersList.propTypes = {
   onClickOfferCardTitle: PropTypes.func.isRequired,
-  mockData: PropTypes.shape({
-    offerCard: PropTypes.array.isRequired
-  }),
   offersListForCurrentCity: PropTypes.array
 };
 

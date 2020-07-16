@@ -203,7 +203,7 @@ const mockData = {
       ownerAvatar: `../img/avatar-angelina.jpg`,
       hostBadge: `superhost`,
       location: [48.863716, 2.389014],
-      locationNearby: [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3809553943508, 4.939309666406198]],
+      locationNearby: [[48.864716, 2.349014], [48.874716, 2.359014], [48.844716, 2.339014]],
       reviews: [
         {
           text: `is the best five star hotel and Ukraine, I spent 10 days during quarantine.
@@ -252,7 +252,7 @@ const mockData = {
       ownerAvatar: `../img/avatar-angelina.jpg`,
       hostBadge: `superhost`,
       location: [48.833716, 2.386014],
-      locationNearby: [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3809553943508, 4.939309666406198]],
+      locationNearby: [[48.864716, 2.349014], [48.874716, 2.359014], [48.844716, 2.339014]],
       reviews: [
         {
           text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
@@ -306,8 +306,8 @@ const mockData = {
       description: `Our spacious 150 square meters apartment is located in the beautiful historical part of Kiev, the most central location. It is a newly renovated apartment with all the new and fresh amenities for your comfortable stay.Flat located on 5th floor (please note there is no elevator), from the windows you can spot hotel "Ukraine" which is located on the Maidan square. 2 mins walk to the National Opera House, 5 mins walk to Khreshatyk Street and Arena City.`,
       ownerAvatar: `../img/avatar-angelina.jpg`,
       hostBadge: `superhost`,
-      location: [52.3909553943508, 4.929309666406198],
-      locationNearby: [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3809553943508, 4.939309666406198]],
+      location: [50.935173, 6.953101],
+      locationNearby: [[50.935173, 6.953101], [50.945173, 6.963101], [50.93573, 6.95301]],
       reviews: [
         {
           text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
@@ -361,8 +361,8 @@ const mockData = {
       description: `Our spacious 150 square meters apartment is located in the beautiful historical part of Kiev, the most central location. It is a newly renovated apartment with all the new and fresh amenities for your comfortable stay.Flat located on 5th floor (please note there is no elevator), from the windows you can spot hotel "Ukraine" which is located on the Maidan square. 2 mins walk to the National Opera House, 5 mins walk to Khreshatyk Street and Arena City.`,
       ownerAvatar: `../img/avatar-angelina.jpg`,
       hostBadge: `superhost`,
-      location: [52.3909553943508, 4.929309666406198],
-      locationNearby: [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3809553943508, 4.939309666406198]],
+      location: [50.850521, 4.348812],
+      locationNearby: [[50.820521, 4.318812], [50.8505213, 4.328822], [50.850621, 4.348612]],
       reviews: [
         {
           text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
@@ -416,8 +416,8 @@ const mockData = {
       description: `Our spacious 150 square meters apartment is located in the beautiful historical part of Kiev, the most central location. It is a newly renovated apartment with all the new and fresh amenities for your comfortable stay.Flat located on 5th floor (please note there is no elevator), from the windows you can spot hotel "Ukraine" which is located on the Maidan square. 2 mins walk to the National Opera House, 5 mins walk to Khreshatyk Street and Arena City.`,
       ownerAvatar: `../img/avatar-angelina.jpg`,
       hostBadge: `superhost`,
-      location: [52.3909553943508, 4.929309666406198],
-      locationNearby: [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3809553943508, 4.939309666406198]],
+      location: [53.551086, 9.993682],
+      locationNearby: [[53.531086, 9.973682], [53.551086, 9.993682], [53.561086, 9.973682]],
       reviews: [
         {
           text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
@@ -445,61 +445,61 @@ const mockData = {
         }
       ]
     },
-    {
-      city: `Dusseldorf`,
-      cityCoordinates: [51.2217, 6.7762],
-      price: 200,
-      pricePer: `Night`,
-      currency: `€`,
-      title: `Cozy room for singles, couples or friends`,
-      id: `5523`,
-      type: `house`,
-      rating: 3.2,
-      badge: `Premium`,
-      thumbnail: `https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
-      images: [
-        `https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`,
-        `https://images.unsplash.com/photo-1497366412874-3415097a27e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
-        `https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
-        `https://images.unsplash.com/photo-1547340964-f765a5906c59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
-        `https://images.unsplash.com/photo-1521483756775-c37af386fce9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
-        `https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
-      ],
-      bedrooms: 4,
-      people: 1,
-      facilities: [`333Wi-Fi`, `Washing machine`, `Towels`, `Heating`, `Coffee machine`, `Baby seat`, `Kitchen`, `Dishwasher`, `Cabel TV`, `Fridge`],
-      description: `Our spacious 150 square meters apartment is located in the beautiful historical part of Kiev, the most central location. It is a newly renovated apartment with all the new and fresh amenities for your comfortable stay.Flat located on 5th floor (please note there is no elevator), from the windows you can spot hotel "Ukraine" which is located on the Maidan square. 2 mins walk to the National Opera House, 5 mins walk to Khreshatyk Street and Arena City.`,
-      ownerAvatar: `../img/avatar-angelina.jpg`,
-      hostBadge: `superhost`,
-      location: [52.3909553943508, 4.929309666406198],
-      locationNearby: [[52.3909553943508, 4.85309666406198], [52.369553943508, 4.85309666406198], [52.3809553943508, 4.939309666406198]],
-      reviews: [
-        {
-          text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
-          rating: 3,
-          name: `Alla`,
-          avatar: `../img/avatar-angelina.jpg`,
-          id: 0,
-          date: `January 17 2002`
-        },
-        {
-          text: `Good enogh`,
-          rating: 1,
-          name: `Alex`,
-          avatar: `../img/avatar-max.jpg`,
-          id: 1,
-          date: `October 1 2018`
-        },
-        {
-          text: `Good enogh`,
-          rating: 1,
-          name: `Alex`,
-          avatar: `../img/avatar-max.jpg`,
-          id: 1,
-          date: `March 12 2020`
-        }
-      ]
-    },
+    // {
+    //   city: `Dusseldorf`,
+    //   cityCoordinates: [51.2217, 6.7762],
+    //   price: 200,
+    //   pricePer: `Night`,
+    //   currency: `€`,
+    //   title: `Cozy room for singles, couples or friends`,
+    //   id: `5523`,
+    //   type: `house`,
+    //   rating: 3.2,
+    //   badge: `Premium`,
+    //   thumbnail: `https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+    //   images: [
+    //     `https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`,
+    //     `https://images.unsplash.com/photo-1497366412874-3415097a27e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+    //     `https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+    //     `https://images.unsplash.com/photo-1547340964-f765a5906c59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+    //     `https://images.unsplash.com/photo-1521483756775-c37af386fce9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+    //     `https://images.unsplash.com/photo-1540574163026-643ea20ade25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`,
+    //   ],
+    //   bedrooms: 4,
+    //   people: 1,
+    //   facilities: [`333Wi-Fi`, `Washing machine`, `Towels`, `Heating`, `Coffee machine`, `Baby seat`, `Kitchen`, `Dishwasher`, `Cabel TV`, `Fridge`],
+    //   description: `Our spacious 150 square meters apartment is located in the beautiful historical part of Kiev, the most central location. It is a newly renovated apartment with all the new and fresh amenities for your comfortable stay.Flat located on 5th floor (please note there is no elevator), from the windows you can spot hotel "Ukraine" which is located on the Maidan square. 2 mins walk to the National Opera House, 5 mins walk to Khreshatyk Street and Arena City.`,
+    //   ownerAvatar: `../img/avatar-angelina.jpg`,
+    //   hostBadge: `superhost`,
+    //   location: [51.2217, 6.7762],
+    //   locationNearby: [[51.2317, 6.8762], [51.2117, 6.7662], [51.2267, 6.7722]],
+    //   reviews: [
+    //     {
+    //       text: `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+    //       rating: 3,
+    //       name: `Alla`,
+    //       avatar: `../img/avatar-angelina.jpg`,
+    //       id: 0,
+    //       date: `January 17 2002`
+    //     },
+    //     {
+    //       text: `Good enogh`,
+    //       rating: 1,
+    //       name: `Alex`,
+    //       avatar: `../img/avatar-max.jpg`,
+    //       id: 1,
+    //       date: `October 1 2018`
+    //     },
+    //     {
+    //       text: `Good enogh`,
+    //       rating: 1,
+    //       name: `Alex`,
+    //       avatar: `../img/avatar-max.jpg`,
+    //       id: 1,
+    //       date: `March 12 2020`
+    //     }
+    //   ]
+    // },
     {
       city: `Amsterdam`,
       cityCoordinates: [52.38333, 4.9],

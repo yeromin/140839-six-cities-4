@@ -2,25 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {actionCreator} from '../../Store/reducer';
+import {ALL_CITIES} from '../../constant_variables';
 
-const CityListTabs = ({allAvailableProperties, currentCity, handleCityClick}) => {
+const CityListTabs = ({currentCity, handleCityClick}) => {
 
-  const allCitiesList = allAvailableProperties.map((offer) => offer.city.toUpperCase());
-  const allUniqueCitiesList = Array.from(new Set(allCitiesList));
   const toSentenceCase = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   };
-
-  // const handleCityClick = (city) => {
-
-  // }
 
   return (
     <div className="tabs">
       <section className="locations container">
         <ul className="locations__list tabs__list">
 
-          {allUniqueCitiesList.map((curr, i) => {
+          {ALL_CITIES.map((curr, i) => {
             return (
               <li key={i} className="locations__item">
                 <a className={
@@ -45,12 +40,6 @@ const CityListTabs = ({allAvailableProperties, currentCity, handleCityClick}) =>
   );
 };
 
-CityListTabs.propTypes = {
-  currentCity: PropTypes.string.isRequired,
-  handleCityClick: PropTypes.func.isRequired,
-  allAvailableProperties: PropTypes.arrayOf(PropTypes.object).isRequired
-};
-
 
 const mapStateToProps = (state) => ({
   currentCity: state.city
@@ -63,6 +52,11 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
+
+CityListTabs.propTypes = {
+  currentCity: PropTypes.string.isRequired,
+  handleCityClick: PropTypes.func.isRequired
+};
 
 export {CityListTabs};
 export default connect(mapStateToProps, mapDispatchToProps)(CityListTabs);

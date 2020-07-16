@@ -6,36 +6,37 @@ class Map extends PureComponent {
   constructor(props) {
     super(props);
     this._mapContainer = React.createRef();
-
-    // this.renderMap = this.renderMap.bind(this);
+    this.map = null;
+    this.renderMap = this.renderMap.bind(this); // - works even without it
   }
 
   renderMap() {
-    const {locationArr, zoom, cityCoordinates} = this.props;
+    const {zoom, cityCoordinates} = this.props;
 
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,
       iconSize: [27, 39]
     });
 
-    const map = leaflet.map(this._mapContainer.current, {
+    this.map = leaflet.map(this._mapContainer.current, {
       center: cityCoordinates,
       zoom,
       zoomControl: false,
       marker: true
     });
 
-    map.setView(cityCoordinates, zoom);
+    this.map.setView(cityCoordinates, zoom);
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
-      .addTo(map);
+      .addTo(this.map);
 
+    const {locationArr} = this.props;
     locationArr.map((locationItemArr) => {
       leaflet
         .marker(locationItemArr, {icon})
-        .addTo(map);
+        .addTo(this.map);
     });
   }
 
@@ -43,9 +44,10 @@ class Map extends PureComponent {
     this.renderMap();
   }
 
-  // componentDidUpdate() {
-  //   this.renderMap();
-  // }
+  componentDidUpdate() {
+    this.map.remove();
+    this.renderMap();
+  }
 
   render() {
 

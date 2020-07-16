@@ -8,14 +8,7 @@ import OfferCard from '../offerCard/offerCard.jsx';
 
 const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: dataArr}}) => {
 
-  // console.log(dataArr);
-
   const currentItem = dataArr.find(({id}) => id === propertyID);
-  // const arrDescription = currentItem.description.split(/(\.)/gi);
-  // const arrDescriptionSentenses = arrDescription.filter((val) => {
-  //   return val !== `.`;
-  // });
-
   const {id, badge, type, bedrooms, people, hostBadge, ownerAvatar, images, rating, price, pricePer, title, facilities, description, locationNearby, cityCoordinates} = currentItem;
 
   return (
