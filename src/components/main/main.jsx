@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import MainEmpty from '../mainEmpty/mainEmpty.jsx';
 
 const Main = (props) => {
-  const {mockData, onClickOfferCardTitle} = props;
+  const {onClickOfferCardTitle} = props;
   const locationArr = props.offersListForCurrentCity.map((curr) => curr.location);
 
   return (
@@ -140,23 +140,8 @@ const Main = (props) => {
 
 Main.propTypes = {
   onClickOfferCardTitle: PropTypes.func.isRequired,
-
   currentCity: PropTypes.string.isRequired,
   offersListForCurrentCity: PropTypes.array.isRequired,
-
-  mockData: PropTypes.shape({
-    offerCard: PropTypes.arrayOf(PropTypes.shape({
-      price: PropTypes.number.isRequired,
-      rating: PropTypes.number.isRequired,
-      pricePer: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      badge: PropTypes.string.isRequired,
-      thumbnail: PropTypes.string.isRequired,
-      type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired
-    })).isRequired
-  })
 };
 
 

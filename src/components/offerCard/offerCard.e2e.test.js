@@ -83,9 +83,9 @@ describe(`OfferCard_hover_e2e`, () => {
     );
 
     // get the real target
-    const OfferCard = wrapper.find(`.place-card`);
+    const OfferCardTarget = wrapper.find(`.place-card`);
 
-    OfferCard.simulate(`mouseEnter`);
+    OfferCardTarget.simulate(`mouseEnter`);
 
     expect(handleOfferCardHover.mock.calls[0][0]).toMatchObject(currentHoveredCard);
   });
