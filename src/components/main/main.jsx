@@ -10,6 +10,12 @@ const Main = (props) => {
   const locationArr = props.offersListForCurrentCity.map((curr) => curr.location);
   const cityCoordinates = props.offersListForCurrentCity[0].cityCoordinates;
 
+  // console.log(`1: `, props.offersListForCurrentCity[0].location);
+  // console.log(`2: `, props.offersListForCurrentCity[0].cityCoordinates);
+  console.log(`locationArr: `, locationArr);
+  console.log(`cityCoordinates: `, cityCoordinates);
+  // console.log(`props: `, props);
+
   return (
     <React.Fragment>
       <div style={{display: `none`}}>
@@ -121,11 +127,14 @@ const Main = (props) => {
 
               <Map
                 locationArr={locationArr}
+                // locationArr={[[48.863716, 2.389014], [48.864716, 2.349014]]}
+                cityCoordinates={cityCoordinates}
+                // cityCoordinates={[48.864716, 2.349014]}
+                offersListForCurrentCity={props.offersListForCurrentCity}
                 htmlclass={`map`}
                 width={`50%`}
                 height={`100%`}
                 zoom={12}
-                cityCoordinates={cityCoordinates}
               />
 
             </div>
@@ -158,10 +167,13 @@ Main.propTypes = {
 };
 
 
-const mapStateToProps = (state) => ({
-  currentCity: state.city,
-  offersListForCurrentCity: state.offersList
-});
+const mapStateToProps = (state) => {
+  // console.log(state);
+  return {
+    currentCity: state.city,
+    offersListForCurrentCity: state.offersCityList,
+  };
+};
 
 export {Main};
 export default connect(mapStateToProps, null)(Main);

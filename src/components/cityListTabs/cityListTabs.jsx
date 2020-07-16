@@ -11,10 +11,10 @@ const CityListTabs = ({allAvailableProperties, currentCity, handleCityClick}) =>
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   };
 
-  const handleCityClick = (city) => {
+  // const handleCityClick = (city) => {
 
-  }
-  
+  // }
+
   return (
     <div className="tabs">
       <section className="locations container">
@@ -30,7 +30,6 @@ const CityListTabs = ({allAvailableProperties, currentCity, handleCityClick}) =>
                 }
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log(toSentenceCase(curr));
                   handleCityClick(toSentenceCase(curr));
                 }}
                 href="#">
@@ -60,6 +59,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleCityClick(currCity) {
     dispatch(actionCreator.changeCity(currCity));
+    dispatch(actionCreator.getOffersList(currCity));
   }
 });
 

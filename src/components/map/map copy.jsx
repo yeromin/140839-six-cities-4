@@ -5,47 +5,59 @@ import leaflet from 'leaflet';
 class Map extends PureComponent {
   constructor(props) {
     super(props);
-    this._mapContainer = React.createRef();
 
-    // this.renderMap = this.renderMap.bind(this);
-  }
-
-  renderMap() {
-    const {locationArr, zoom, cityCoordinates} = this.props;
-
-    const icon = leaflet.icon({
+    this._mapRefContainer = React.createRef();
+    this.mapp = null;
+    this.iconn = leaflet.icon({
       iconUrl: `/img/pin.svg`,
       iconSize: [27, 39]
     });
+    this.markers = [];
+    // this.renderMap = this.renderMap.bind(this);
+  }
 
-    const map = leaflet.map(this._mapContainer.current, {
+  _pinGenerate() {
+    const {locationArr} = this.props;
+
+    locationArr.map((locationItem) => {
+      console.log(locationItem);
+      const mrk = leaflet.marker(locationItem, {icon: this.iconn});
+      mrk.addTo(this.map);
+      this.markers.push(leaflet.marker);
+      // leaflet.addTo(this.mapp);
+    });
+  }
+
+  _resetMarkers() {
+    this.markers = [];
+  }
+
+  componentDidMount() {
+    // this.renderMap();
+    const {zoom, cityCoordinates} = this.props;
+
+    this.mapp = leaflet.map(this._mapRefContainer.current, {
       center: cityCoordinates,
       zoom,
       zoomControl: false,
       marker: true
     });
 
-    map.setView(cityCoordinates, zoom);
+    this.mapp.setView(cityCoordinates, zoom);
+
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
-      .addTo(map);
+      .addTo(this.mapp);
 
-    locationArr.map((locationItemArr) => {
-      leaflet
-        .marker(locationItemArr, {icon})
-        .addTo(map);
-    });
+    this._pinGenerate();
   }
 
-  componentDidMount() {
-    this.renderMap();
+  componentDidUpdate() {
+    this._resetMarkers();
+    this._pinGenerate();
   }
-
-  // componentDidUpdate() {
-  //   this.renderMap();
-  // }
 
   render() {
 
@@ -53,7 +65,7 @@ class Map extends PureComponent {
 
     return (
       <section className={htmlclass} style={{width}}>
-        <div id="map" style={{height}} ref={this._mapContainer}></div>
+        <div id="map" style={{height}} ref={this._mapRefContainer}></div>
       </section>
     );
   }
