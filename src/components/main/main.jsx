@@ -118,15 +118,13 @@ const Main = (props) => {
                   </div>
                 </section>
 
-                <Map
-                  locationArr={locationArr}
-                  cityCoordinates={props.offersListForCurrentCity[0].cityCoordinates}
-                  offersListForCurrentCity={props.offersListForCurrentCity}
-                  htmlclass={`map`}
-                  width={`50%`}
-                  height={`100%`}
-                  zoom={12}
-                />
+                <section className={`map`} style={{width: `50%`, height: `100vh`}}>
+                  <Map
+                    locationArr={locationArr}
+                    cityCoordinates={props.offersListForCurrentCity[0].cityCoordinates}
+                    zoom={12}
+                  />
+                </section>
 
               </div>
             </div>

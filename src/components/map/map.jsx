@@ -1,16 +1,17 @@
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
-import leaflet from 'leaflet';
+import React, {createRef, PureComponent} from "react";
+import PropTypes from "prop-types";
+import leaflet from "leaflet";
 
 class Map extends PureComponent {
   constructor(props) {
     super(props);
-    this._mapContainer = React.createRef();
+
+    this._mapRefContainer = createRef();
+    this._renderMap = this._renderMap.bind(this); // - works even without it
     this.map = null;
-    this.renderMap = this.renderMap.bind(this); // - works even without it
   }
 
-  renderMap() {
+  _renderMap() {
     const {zoom, cityCoordinates} = this.props;
 
     const icon = leaflet.icon({
@@ -18,22 +19,27 @@ class Map extends PureComponent {
       iconSize: [27, 39]
     });
 
-    this.map = leaflet.map(this._mapContainer.current, {
+    this.map = leaflet.map(this._mapRefContainer.current, {
       center: cityCoordinates,
       zoom,
       zoomControl: false,
       marker: true
     });
 
+    if (!this.map) {
+      return;
+    }
+
     this.map.setView(cityCoordinates, zoom);
+
     leaflet
-      .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
-        attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
+      .tileLayer(`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png`, {
+        attribution: `&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors`
       })
       .addTo(this.map);
 
     const {locationArr} = this.props;
-    locationArr.map((locationItemArr) => {
+    locationArr.forEach((locationItemArr) => {
       leaflet
         .marker(locationItemArr, {icon})
         .addTo(this.map);
@@ -41,31 +47,31 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
-    this.renderMap();
+    this._renderMap();
   }
 
   componentDidUpdate() {
-    this.map.remove();
-    this.renderMap();
+    if (this.map) {
+      this.map.remove();
+    }
+    this._renderMap();
+  }
+
+  componentWillUnmount() {
+    if (this.map) {
+      this.map.remove();
+    }
   }
 
   render() {
-
-    const {htmlclass, width, height} = this.props;
-
     return (
-      <section className={htmlclass} style={{width}}>
-        <div id="map" style={{height}} ref={this._mapContainer}></div>
-      </section>
+      <div id="map" ref={this._mapRefContainer} style={{minHeight: `590px`, height: `100%`}}></div>
     );
   }
 }
 
 Map.propTypes = {
   locationArr: PropTypes.arrayOf(PropTypes.array).isRequired,
-  htmlclass: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
   cityCoordinates: PropTypes.array.isRequired,
   zoom: PropTypes.number.isRequired,
 };

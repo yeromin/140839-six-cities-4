@@ -128,7 +128,13 @@ const Property = ({match: {params: {id: propertyID}}, mockData: {offerCard: data
                 </div>
               </div>
 
-              <Map locationArr={locationNearby} htmlclass={`property__map map`} width={`100%`} height={`579px`} zoom={13} cityCoordinates={cityCoordinates}/>
+              <section className={`property__map map`} style={{width: `100%`, height: `580px`}}>
+                <Map
+                  locationArr={locationNearby}
+                  zoom={13}
+                  cityCoordinates={cityCoordinates}
+                />
+              </section>
 
             </section>
 
