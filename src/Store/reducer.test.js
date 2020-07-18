@@ -20,42 +20,57 @@ describe(`reducers_test`, () => {
         .toEqual({city: initCity, offersCityList});
   });
 
-  // it(`Reducer changes the city by a given parameter`, () => {
-  //   expect(
-  //       reducer(
-  //           {city: `Paris`, offersCityList},
-  //           {type: actionType.CHANGE_CITY, payload: `Amsterdam`}))
-  //       .toEqual({
-  //         city: `Amsterdam`,
-  //         offersCityList}
-  //       );
-  // });
+  it(`Reducer changes the city according to the parameter passed`, () => {
+    expect(
+        reducer(
+            {city: `Paris`, offersCityList},
+            {type: actionType.CHANGE_CITY, payload: `Paris`}))
+        .toEqual({
+          city: `Paris`,
+          offersCityList}
+        );
+  });
 
-  // it(`Reducer changes property list according to the parameter passed`, () => {
-  //   expect(
-  //       reducer(
-  //           {city: `Paris`, offersCityList: offersCityListForParis},
-  //           {type: actionType.GET_OFFERS_CITY_LIST, payload: offersCityListForParis}))
-  //       .toEqual({
-  //         city: `Paris`,
-  //         offersCityListForParis
-  //       });
-  // });
+  it(`Reducer changes property list according to the parameter passed`, () => {
+    expect(
+        reducer(
+            {city: `Paris`, offersCityList: getOffersForCity(`Paris`)},
+            {type: actionType.GET_OFFERS_CITY_LIST, payload: getOffersForCity(`Paris`)}))
+        .toEqual({
+          city: `Paris`,
+          offersCityList: getOffersForCity(`Paris`)
+        });
+  });
 
 });
 
 describe(`actions_test`, () => {
-  it(`Action creator for change city returns correct action`, () => {
-    expect(actionCreator.changeCity(`Amsterdam`)).toEqual({
+  it(`actionCreator.changeCity() returns correct data by action`, () => {
+    expect(actionCreator.changeCity(`Paris`)).toEqual({
       type: actionType.CHANGE_CITY,
-      payload: `Amsterdam`,
-    });
-  });
-
-  it(`Action creator for change city returns correct action without city`, () => {
-    expect(actionCreator.changeCity()).toEqual({
-      type: ActionType.CHANGE_CITY,
       payload: `Paris`,
     });
   });
+
+  it(`actionCreator.changeCity() returns correct data by action without any parameter (by default)`, () => {
+    expect(actionCreator.changeCity()).toEqual({
+      type: actionType.CHANGE_CITY,
+      payload: initCity,
+    });
+  });
+
+  it(`actionCreator.getOffersList() returns correct data by action`, () => {
+    expect(actionCreator.getOffersList(`Amsterdam`)).toEqual({
+      type: actionType.GET_OFFERS,
+      payload: getOffersForCity(`Amsterdam`)
+    });
+  });
+
+  it(`actionCreator.getOffersList() returns correct data by action without any parameter (by default)`, () => {
+    expect(actionCreator.getOffersList()).toEqual({
+      type: actionType.GET_OFFERS,
+      payload: getOffersForCity(`Amsterdam`)
+    });
+  });
+  
 });

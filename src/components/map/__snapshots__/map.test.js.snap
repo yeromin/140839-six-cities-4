@@ -1,21 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`map_test Component map should render the map with markers 1`] = `
-<section
-  className="map"
+<div
+  id="map"
   style={
     Object {
-      "width": "50%",
+      "height": "100%",
+      "minHeight": "590px",
     }
   }
->
-  <div
-    id="map"
-    style={
-      Object {
-        "height": "100%",
-      }
-    }
-  />
-</section>
+/>
 `;

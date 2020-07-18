@@ -22,14 +22,14 @@ const actionType = {
 };
 
 const actionCreator = {
-  changeCity: (city) => {
+  changeCity: (city = initialState.city) => {
     return {
       type: actionType.CHANGE_CITY,
       payload: city
     };
   },
 
-  getOffersList: (city) => {
+  getOffersList: (city = initialState.city) => {
     return {
       type: actionType.GET_OFFERS,
       payload: getOffersForCity(city)
