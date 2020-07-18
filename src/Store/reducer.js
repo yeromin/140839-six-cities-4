@@ -11,7 +11,8 @@ const getOffersForCity = (city) => {
 
 const initialState = {
   city: INIT_CITY_FOR_THE_APP,
-  offersCityList: getOffersForCity(INIT_CITY_FOR_THE_APP)
+  offersCityList: getOffersForCity(INIT_CITY_FOR_THE_APP),
+  sort: `Popular`
 };
 
 
@@ -19,6 +20,7 @@ const initialState = {
 const actionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   GET_OFFERS: `GET_OFFERS_FOR_CURRENT_CITY`,
+  CHANGE_PLACES_SORT: `CHANGE_PLACES_SORT`
 };
 
 const actionCreator = {
@@ -34,7 +36,12 @@ const actionCreator = {
       type: actionType.GET_OFFERS,
       payload: getOffersForCity(city)
     };
-  }
+  },
+
+  changeSorting: (sort) => ({
+    type: actionType.CHANGE_PLACES_SORT,
+    payload: sort
+  })
 };
 
 
@@ -50,6 +57,12 @@ const reducer = (state = initialState, action) => {
     case actionType.GET_OFFERS:
       return Object.assign({}, state, {
         offersCityList: action.payload
+      });
+
+    case actionType.CHANGE_PLACES_SORT:
+      console.log(state);
+      return Object.assign({}, state, {
+        sort: action.payload
       });
 
   }
