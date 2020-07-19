@@ -2,9 +2,9 @@ import React from "react";
 import OfferCard from '../offerCard/offerCard.jsx';
 import PropTypes from 'prop-types';
 import SortPlaces from '../sortPlaces/sortPlaces.jsx';
-import withSortPlacesHOC from '../../HOCs/with-sortPlaces';
+import WithSortPlacesHOC from '../../HOCs/with-sortPlaces';
 
-const SortPlacesWrap = withSortPlacesHOC(SortPlaces);
+const SortPlacesWrap = WithSortPlacesHOC(SortPlaces);
 
 class OffersList extends React.PureComponent {
   constructor(props) {

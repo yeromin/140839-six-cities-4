@@ -9,3 +9,10 @@ export const ALL_CITIES = [
   `Hamburg`,
   `Dusseldorf`
 ];
+
+export const SORT_OFFERS_OPTIONS = [
+  {value: `popular`, label: `Popular`},
+  {value: `low-to-high`, label: `Price: low to high`},
+  {value: `high-to-low`, label: `Price: high to low`},
+  {value: `top-rated-first`, label: `Top rated first`},
+];

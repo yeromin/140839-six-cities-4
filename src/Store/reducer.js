@@ -1,5 +1,5 @@
 import mockData from '../mocks/offers';
-import {INIT_CITY_FOR_THE_APP} from '../constant_variables';
+import {INIT_CITY_FOR_THE_APP, SORT_OFFERS_OPTIONS} from '../constant_variables';
 
 
 // INITIAL STATE OF THE APP
@@ -12,7 +12,7 @@ const getOffersForCity = (city) => {
 const initialState = {
   city: INIT_CITY_FOR_THE_APP,
   offersCityList: getOffersForCity(INIT_CITY_FOR_THE_APP),
-  sort: `Popular`
+  sort: SORT_OFFERS_OPTIONS[0]
 };
 
 
@@ -38,10 +38,17 @@ const actionCreator = {
     };
   },
 
-  changeSorting: (sort) => ({
-    type: actionType.CHANGE_PLACES_SORT,
-    payload: sort
-  })
+  // changeSorting: (sort = initialState.sort) => ({
+  //   type: actionType.CHANGE_PLACES_SORT,
+  //   payload: sort
+  // })
+  changeSorting: (sort = initialState.sort) => {
+    console.log(`actionCreator: `, sort);
+    return {
+      type: actionType.CHANGE_PLACES_SORT,
+      payload: sort
+    };
+  }
 };
 
 
@@ -60,7 +67,6 @@ const reducer = (state = initialState, action) => {
       });
 
     case actionType.CHANGE_PLACES_SORT:
-      console.log(state);
       return Object.assign({}, state, {
         sort: action.payload
       });

@@ -7,7 +7,7 @@ class Map extends PureComponent {
     super(props);
 
     this._mapRefContainer = createRef();
-    this._renderMap = this._renderMap.bind(this); // - works even without it
+    // this._renderMap = this._renderMap.bind(this); // - works even without it
     this.map = null;
   }
 
