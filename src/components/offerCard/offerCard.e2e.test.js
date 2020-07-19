@@ -113,6 +113,6 @@ describe(`OfferCard_click_e2e`, () => {
 
     // get the real target
     const title = wrapper.find(Link);
-    expect(title.props().to).toBe(`dev-property/${encodeURI(offerCardData[0].id)}`);
+    expect(title.props().to).toBe(`property/${encodeURI(offerCardData[0].id)}`);
   });
 });

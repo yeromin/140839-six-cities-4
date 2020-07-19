@@ -38,17 +38,17 @@ const actionCreator = {
     };
   },
 
-  // changeSorting: (sort = initialState.sort) => ({
-  //   type: actionType.CHANGE_PLACES_SORT,
-  //   payload: sort
-  // })
-  changeSorting: (sort = initialState.sort) => {
-    console.log(`actionCreator: `, sort);
-    return {
-      type: actionType.CHANGE_PLACES_SORT,
-      payload: sort
-    };
-  }
+  changeSorting: (sort = initialState.sort) => ({
+    type: actionType.CHANGE_PLACES_SORT,
+    payload: sort
+  })
+  // changeSorting: (sort = initialState.sort) => {
+  //   console.log(`actionCreator: `, sort);
+  //   return {
+  //     type: actionType.CHANGE_PLACES_SORT,
+  //     payload: sort
+  //   };
+  // }
 };
 
 

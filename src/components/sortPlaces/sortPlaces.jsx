@@ -14,7 +14,7 @@ class SortPlaces extends React.Component {
     this.handleSortToggle = this.handleSortToggle.bind(this);
     this.handleSortOptionClick = this.handleSortOptionClick.bind(this);
 
-    console.log(`SortPlaces props: `, props);
+    // console.log(`SortPlaces props: `, props);
   }
 
   handleSortToggle() {

@@ -2,20 +2,22 @@ import React from "react";
 import OfferCard from '../offerCard/offerCard.jsx';
 import PropTypes from 'prop-types';
 import SortPlaces from '../sortPlaces/sortPlaces.jsx';
-import WithSortPlacesHOC from '../../HOCs/with-sortPlaces';
+import withSortPlacesHOC from '../../HOCs/with-sortPlaces';
 
-const SortPlacesWrap = WithSortPlacesHOC(SortPlaces);
+const SortPlacesWrap = withSortPlacesHOC(SortPlaces);
 
 class OffersList extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeCard: null
+      activeCard: null,
+      sort: props.currentSortValue
     };
-
     this.handleOfferCardHover = this.handleOfferCardHover.bind(this);
 
+    // console.log(props.offersListForCurrentCity);
+    console.log(this.state);
   }
 
   handleOfferCardHover(currentCard) {
@@ -59,6 +61,7 @@ OffersList.propTypes = {
   onClickOfferCardTitle: PropTypes.func.isRequired,
   offersListForCurrentCity: PropTypes.array,
   currentCity: PropTypes.string.isRequired,
+  currentSortValue: PropTypes.string.isRequired,
 };
 
 export default OffersList;

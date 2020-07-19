@@ -70,7 +70,7 @@ const OfferCard = ({
             </div>
             <h2 className="place-card__name">
               <Link
-                to={`dev-property/${encodeURI(id)}`}
+                to={`property/${encodeURI(id)}`}
                 onClick={onClickOfferCardTitle} // click according to task 2
               >
                 {title}
@@ -92,13 +92,14 @@ OfferCard.propTypes = {
   offerCardData: PropTypes.array.isRequired,
 };
 
-OfferCard.defaultProps = {
-  onClickOfferCardTitle: ()=>{}
-};
+// OfferCard.defaultProps = {
+//   onClickOfferCardTitle: ()=>{}
+// };
 
 // TODO: handle this func in the <Property /> component
 OfferCard.defaultProps = {
-  handleOfferCardHover: ()=>{}
+  handleOfferCardHover: ()=>{},
+  onClickOfferCardTitle: ()=>{}
 };
 
 export default OfferCard;
