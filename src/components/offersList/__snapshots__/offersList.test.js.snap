@@ -110,7 +110,7 @@ Array [
   </article>,
   <article
     className="cities__place-card place-card"
-    id="56234"
+    id="5234"
     onMouseEnter={[Function]}
   >
     <div
@@ -201,7 +201,7 @@ Array [
         className="place-card__name"
       >
         <a
-          href="/dev-property/56234"
+          href="/dev-property/5234"
           onClick={[Function]}
         >
           Einzelzimmer in Munich Innenstadt
@@ -216,7 +216,7 @@ Array [
   </article>,
   <article
     className="cities__place-card place-card"
-    id="55234524"
+    id="55234524900"
     onMouseEnter={[Function]}
   >
     <div
@@ -307,7 +307,7 @@ Array [
         className="place-card__name"
       >
         <a
-          href="/dev-property/55234524"
+          href="/dev-property/55234524900"
           onClick={[Function]}
         >
           Cozy room for singles, couples or friends

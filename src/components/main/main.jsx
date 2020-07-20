@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from '../offersList/offersList.jsx';
 import Map from '../map/map.jsx';
-
+import CityListTabs from '../cityListTabs/cityListTabs.jsx';
+import {connect} from 'react-redux';
+import MainEmpty from '../mainEmpty/mainEmpty.jsx';
 
 const Main = (props) => {
-  const {mockData, onClickOfferCardTitle} = props;
-
-  // console.log(mockData.offerCard);
-  const locationArr = mockData.offerCard.map((curr) => curr.location);
+  const {onClickOfferCardTitle} = props;
+  const locationArr = props.offersListForCurrentCity.map((curr) => curr.location);
 
   return (
     <React.Fragment>
@@ -68,92 +68,68 @@ const Main = (props) => {
         </header>
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          <div className="tabs">
-            <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Paris</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Cologne</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Brussels</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item tabs__item--active">
-                    <span>Amsterdam</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Hamburg</span>
-                  </a>
-                </li>
-                <li className="locations__item">
-                  <a className="locations__item-link tabs__item" href="#">
-                    <span>Dusseldorf</span>
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div>
-          <div className="cities">
-            <div className="cities__places-container container">
-              <section className="cities__places places">
-                <h2 className="visually-hidden">Places</h2>
 
-                <b className="places__found">
-                  {mockData.offerCard.length}
-                  &nbsp;places to stay in&nbsp;
-                  Amsterdam
-                </b>
+          <CityListTabs />
 
-                <form className="places__sorting" action="#" method="get">
-                  <span className="places__sorting-caption">Sort by</span>
-                  <span className="places__sorting-type" tabIndex={0}>
-                    Popular
-                    <svg className="places__sorting-arrow" width={7} height={4}>
-                      <use xlinkHref="#icon-arrow-select" />
-                    </svg>
-                  </span>
-                  <ul className="places__options places__options--custom places__options--opened">
-                    <li className="places__option places__option--active"tabIndex={0}>Popular</li>
-                    <li className="places__option" tabIndex={0}>Price: low to high</li>
-                    <li className="places__option" tabIndex={0}>Price: high to low</li>
-                    <li className="places__option" tabIndex={0}>Top rated first</li>
-                  </ul>
+          {props.offersListForCurrentCity.length < 1 ? <MainEmpty city={props.currentCity} /> :
+            <div className="cities">
+              <div className="cities__places-container container">
+                <section className="cities__places places">
+                  <h2 className="visually-hidden">Places</h2>
 
-                  {/*
-                <select class="places__sorting-type" id="places-sorting">
-                <option class="places__option" value="popular" selected="">Popular</option>
-                <option class="places__option" value="to-high">Price: low to high</option>
-                <option class="places__option" value="to-low">Price: high to low</option>
-                <option class="places__option" value="top-rated">Top rated first</option>
-                </select>
-                */}
+                  <b className="places__found">
+                    {props.offersListForCurrentCity.length}
+                    &nbsp;places to stay in&nbsp;
+                    {props.currentCity}
+                  </b>
 
-                </form>
-                <div className="cities__places-list places__list tabs__content">
+                  <form className="places__sorting" action="#" method="get">
+                    <span className="places__sorting-caption">Sort by</span>
+                    <span className="places__sorting-type" tabIndex={0}>
+                      Popular
+                      <svg className="places__sorting-arrow" width={7} height={4}>
+                        <use xlinkHref="#icon-arrow-select" />
+                      </svg>
+                    </span>
+                    <ul className="places__options places__options--custom places__options--opened">
+                      <li className="places__option places__option--active"tabIndex={0}>Popular</li>
+                      <li className="places__option" tabIndex={0}>Price: low to high</li>
+                      <li className="places__option" tabIndex={0}>Price: high to low</li>
+                      <li className="places__option" tabIndex={0}>Top rated first</li>
+                    </ul>
 
-                  <OffersList
-                    mockData={mockData}
-                    onClickOfferCardTitle={onClickOfferCardTitle}
+                    {/*
+                  <select class="places__sorting-type" id="places-sorting">
+                  <option class="places__option" value="popular" selected="">Popular</option>
+                  <option class="places__option" value="to-high">Price: low to high</option>
+                  <option class="places__option" value="to-low">Price: high to low</option>
+                  <option class="places__option" value="top-rated">Top rated first</option>
+                  </select>
+                  */}
+
+                  </form>
+                  <div className="cities__places-list places__list tabs__content">
+
+                    <OffersList
+                      offersListForCurrentCity={props.offersListForCurrentCity}
+                      onClickOfferCardTitle={onClickOfferCardTitle}
+                    />
+
+                  </div>
+                </section>
+
+                <section className={`map`} style={{width: `50%`, height: `100vh`}}>
+                  <Map
+                    locationArr={locationArr}
+                    cityCoordinates={props.offersListForCurrentCity[0].cityCoordinates}
+                    zoom={12}
                   />
+                </section>
 
-                </div>
-              </section>
-
-              <Map locationArr={locationArr} htmlclass={`map`} width={`100%`} height={`100%`} />
-
+              </div>
             </div>
-          </div>
+          }
+
         </main>
       </div>
     </React.Fragment>
@@ -162,21 +138,17 @@ const Main = (props) => {
 
 Main.propTypes = {
   onClickOfferCardTitle: PropTypes.func.isRequired,
-
-  mockData: PropTypes.shape({
-    offerCard: PropTypes.arrayOf(PropTypes.shape({
-      price: PropTypes.number.isRequired,
-      rating: PropTypes.number.isRequired,
-      pricePer: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      badge: PropTypes.string.isRequired,
-      thumbnail: PropTypes.string.isRequired,
-      type: PropTypes.oneOf([`apartment`, `room`, `house`, `hotel`]).isRequired
-    })).isRequired
-  })
-
+  currentCity: PropTypes.string.isRequired,
+  offersListForCurrentCity: PropTypes.array.isRequired,
 };
 
-export default Main;
+
+const mapStateToProps = (state) => {
+  return {
+    currentCity: state.city,
+    offersListForCurrentCity: state.offersCityList,
+  };
+};
+
+export {Main};
+export default connect(mapStateToProps, null)(Main);

@@ -11,7 +11,7 @@ const handleOfferCardHover = (currentCard) => {
   return currentCard;
 };
 
-const offerCardMockData = {
+const offerCardData = {
   offerCard: [
     {
       price: 190,
@@ -69,7 +69,7 @@ describe(`offerCard_test`, () => {
               <OfferCard
                 handleOfferCardTitleClick={handleOfferCardTitleClick}
                 handleOfferCardHover={handleOfferCardHover}
-                offerCardMockData={offerCardMockData.offerCard}
+                offerCardData={offerCardData.offerCard}
               />
             </Route>
           </Switch>

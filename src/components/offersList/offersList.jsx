@@ -26,7 +26,7 @@ class OffersList extends React.PureComponent {
       <OfferCard
         onClickOfferCardTitle={this.props.onClickOfferCardTitle}
         handleOfferCardHover={this.handleOfferCardHover}
-        offerCardMockData={this.props.mockData.offerCard}
+        offerCardData={this.props.offersListForCurrentCity}
       />
     );
   }
@@ -35,9 +35,7 @@ class OffersList extends React.PureComponent {
 
 OffersList.propTypes = {
   onClickOfferCardTitle: PropTypes.func.isRequired,
-  mockData: PropTypes.shape({
-    offerCard: PropTypes.array.isRequired
-  })
+  offersListForCurrentCity: PropTypes.array
 };
 
 export default OffersList;

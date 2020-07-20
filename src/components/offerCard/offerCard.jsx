@@ -2,14 +2,14 @@ import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
-const PlaceCard = ({
+const OfferCard = ({
   onClickOfferCardTitle,
   handleOfferCardHover,
-  offerCardMockData,
+  offerCardData,
 }) => {
   return (
     <React.Fragment>
-      {offerCardMockData.map((currItem) => {
+      {offerCardData.map((currItem) => {
 
         const {id, badge, currency, price, pricePer, thumbnail, rating, title, type} = currItem;
 
@@ -86,19 +86,19 @@ const PlaceCard = ({
   );
 };
 
-PlaceCard.propTypes = {
+OfferCard.propTypes = {
   onClickOfferCardTitle: PropTypes.func,
   handleOfferCardHover: PropTypes.func,
-  offerCardMockData: PropTypes.array.isRequired,
+  offerCardData: PropTypes.array.isRequired,
 };
 
-PlaceCard.defaultProps = {
+OfferCard.defaultProps = {
   onClickOfferCardTitle: ()=>{}
 };
 
 // TODO: handle this func in the <Property /> component
-PlaceCard.defaultProps = {
+OfferCard.defaultProps = {
   handleOfferCardHover: ()=>{}
 };
 
-export default PlaceCard;
+export default OfferCard;

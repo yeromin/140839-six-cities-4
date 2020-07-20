@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewsItem from '../reviewsItem/reviewsItem.jsx';
 import propTypes from 'prop-types';
-import MAX_REVIEWS_COUNT from '../../constant_variables';
+import {MAX_REVIEWS_COUNT} from '../../constant_variables';
 
 const ReviewsList = (props) => {
 

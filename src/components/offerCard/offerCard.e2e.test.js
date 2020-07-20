@@ -7,7 +7,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 Enzyme.configure({adapter: new Adapter()});
 
-const offerCardMockData = [
+const offerCardData = [
   {
     city: `amsterdam`,
     price: 190,
@@ -75,7 +75,7 @@ describe(`OfferCard_hover_e2e`, () => {
               <OfferCard
                 onClickOfferCardTitle={handleOfferCardTitleClick}
                 handleOfferCardHover={handleOfferCardHover}
-                offerCardMockData={offerCardMockData}
+                offerCardData={offerCardData}
               />
             </Route>
           </Switch>
@@ -83,9 +83,9 @@ describe(`OfferCard_hover_e2e`, () => {
     );
 
     // get the real target
-    const placeCard = wrapper.find(`.place-card`);
+    const OfferCardTarget = wrapper.find(`.place-card`);
 
-    placeCard.simulate(`mouseEnter`);
+    OfferCardTarget.simulate(`mouseEnter`);
 
     expect(handleOfferCardHover.mock.calls[0][0]).toMatchObject(currentHoveredCard);
   });
@@ -104,7 +104,7 @@ describe(`OfferCard_click_e2e`, () => {
               <OfferCard
                 onClickOfferCardTitle={handleOfferCardTitleClick}
                 handleOfferCardHover={handleOfferCardHover}
-                offerCardMockData={offerCardMockData}
+                offerCardData={offerCardData}
               />
             </Route>
           </Switch>
@@ -113,6 +113,6 @@ describe(`OfferCard_click_e2e`, () => {
 
     // get the real target
     const title = wrapper.find(Link);
-    expect(title.props().to).toBe(`dev-property/${encodeURI(offerCardMockData[0].id)}`);
+    expect(title.props().to).toBe(`dev-property/${encodeURI(offerCardData[0].id)}`);
   });
 });

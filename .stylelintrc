@@ -1,8 +1,7 @@
-const { resolve } = require('path')
-
-const basePath = resolve(__dirname, 'node_modules')
-const groupSelectors = `${basePath}/stylelint-group-selectors`
-const cssTreeValidator = `${basePath}/stylelint-csstree-validator`
+const { resolve } = require('path');
+const basePath = resolve(__dirname, 'node_modules');
+const groupSelectors = `${basePath}/stylelint-group-selectors`;
+const cssTreeValidator = `${basePath}/stylelint-csstree-validator`;
 
 module.exports = {
     plugins: [groupSelectors, cssTreeValidator],
@@ -15,5 +14,5 @@ module.exports = {
         //'scss/selector-no-redundant-nesting-selector': true,
         //'plugin/stylelint-group-selectors': true,
         //'csstree/validator': true,
-    },
-}
+    }
+};
