@@ -20,7 +20,8 @@ const initialState = {
 const actionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   GET_OFFERS: `GET_OFFERS_FOR_CURRENT_CITY`,
-  CHANGE_PLACES_SORT: `CHANGE_PLACES_SORT`
+  CHANGE_PLACES_SORT: `CHANGE_PLACES_SORT`,
+  HOVERED_PLACE_CARD: `HOVERED_PLACE_CARD`,
 };
 
 const actionCreator = {
@@ -41,12 +42,17 @@ const actionCreator = {
   changeSorting: (sort = initialState.sort) => ({
     type: actionType.CHANGE_PLACES_SORT,
     payload: sort
+  }),
+
+  getHoveredOfferCard: (card) => ({
+    type: actionType.HOVERED_PLACE_CARD,
+    payload: card
   })
-  // changeSorting: (sort = initialState.sort) => {
-  //   console.log(`actionCreator: `, sort);
+  // getHoveredOfferCard: (card) => {
+  //   console.log(card);
   //   return {
-  //     type: actionType.CHANGE_PLACES_SORT,
-  //     payload: sort
+  //     type: actionType.HOVERED_PLACE_CARD,
+  //     payload: card
   //   };
   // }
 };
@@ -69,6 +75,11 @@ const reducer = (state = initialState, action) => {
     case actionType.CHANGE_PLACES_SORT:
       return Object.assign({}, state, {
         sort: action.payload
+      });
+
+    case actionType.HOVERED_PLACE_CARD:
+      return Object.assign({}, state, {
+        card: action.payload
       });
 
   }

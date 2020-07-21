@@ -14,17 +14,6 @@ class OffersList extends React.PureComponent {
       activeCard: null,
       sort: props.currentSortValue
     };
-    this.handleOfferCardHover = this.handleOfferCardHover.bind(this);
-
-    // console.log(props.offersListForCurrentCity);
-    console.log(this.state);
-  }
-
-  handleOfferCardHover(currentCard) {
-    this.setState({
-      activeCard: currentCard
-    });
-    return currentCard;
   }
 
   render() {
