@@ -31,7 +31,7 @@ class App extends React.PureComponent {
             />
           </Route>
 
-          <Route exact path="/dev-property/:id" >
+          <Route exact path="/property/:id" >
             {(props) => <Property {...props} mockData={this.props.mockData}/>}
           </Route>
 

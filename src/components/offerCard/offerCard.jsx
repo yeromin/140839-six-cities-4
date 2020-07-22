@@ -1,6 +1,8 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
+import {actionCreator} from '../../Store/reducer';
 
 const OfferCard = ({
   onClickOfferCardTitle,
@@ -70,7 +72,7 @@ const OfferCard = ({
             </div>
             <h2 className="place-card__name">
               <Link
-                to={`dev-property/${encodeURI(id)}`}
+                to={`property/${encodeURI(id)}`}
                 onClick={onClickOfferCardTitle} // click according to task 2
               >
                 {title}
@@ -93,12 +95,19 @@ OfferCard.propTypes = {
 };
 
 OfferCard.defaultProps = {
-  onClickOfferCardTitle: ()=>{}
+  onClickOfferCardTitle: () => {}
 };
 
-// TODO: handle this func in the <Property /> component
 OfferCard.defaultProps = {
-  handleOfferCardHover: ()=>{}
+  // handleOfferCardHover: () => {},
+  onClickOfferCardTitle: () => {}
 };
 
-export default OfferCard;
+const mapDispatchToProps = (dispatch) => ({
+  handleOfferCardHover(currentHoveredItem) {
+    dispatch(actionCreator.getHoveredOfferCard(currentHoveredItem));
+  }
+});
+
+export {OfferCard};
+export default connect(null, mapDispatchToProps)(OfferCard);

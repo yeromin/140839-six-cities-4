@@ -1,21 +1,27 @@
 import React, {createRef, PureComponent} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
+import {connect} from 'react-redux';
 
 class Map extends PureComponent {
   constructor(props) {
     super(props);
 
     this._mapRefContainer = createRef();
-    this._renderMap = this._renderMap.bind(this); // - works even without it
+    // this._renderMap = this._renderMap.bind(this); // - works even without it
     this.map = null;
   }
 
   _renderMap() {
-    const {zoom, cityCoordinates} = this.props;
+    const {zoom, cityCoordinates, currentHoveredProperty} = this.props;
+
 
     const icon = leaflet.icon({
       iconUrl: `/img/pin.svg`,
+      iconSize: [27, 39]
+    });
+    const activeIcon = leaflet.icon({
+      iconUrl: `img/pin-active.svg`,
       iconSize: [27, 39]
     });
 
@@ -44,13 +50,21 @@ class Map extends PureComponent {
         .marker(locationItemArr, {icon})
         .addTo(this.map);
     });
+
+    // highlight pin of the hovered property
+    if (currentHoveredProperty) {
+      leaflet
+      .marker(currentHoveredProperty.location, {icon: activeIcon})
+      .addTo(this.map);
+    }
   }
 
   componentDidMount() {
     this._renderMap();
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    // console.log(prevProps);
     if (this.map) {
       this.map.remove();
     }
@@ -74,6 +88,12 @@ Map.propTypes = {
   locationArr: PropTypes.arrayOf(PropTypes.array).isRequired,
   cityCoordinates: PropTypes.array.isRequired,
   zoom: PropTypes.number.isRequired,
+  currentHoveredProperty: PropTypes.object,
 };
 
-export default Map;
+const mapStateToProps = (state) => ({
+  currentHoveredProperty: state.card
+});
+
+export {Map};
+export default connect(mapStateToProps, null)(Map);

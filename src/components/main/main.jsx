@@ -6,9 +6,32 @@ import CityListTabs from '../cityListTabs/cityListTabs.jsx';
 import {connect} from 'react-redux';
 import MainEmpty from '../mainEmpty/mainEmpty.jsx';
 
+const sortOffers = (sortType, offers) => {
+
+  // make a copy of the original array.
+  // TODO: do not rerender Map!!!
+  const preparedOffers = offers.slice(0);
+  switch (sortType) {
+    case `popular`:
+      return preparedOffers;
+
+    case `low-to-high`:
+      return preparedOffers.sort((a, b) => a.price - b.price);
+
+    case `high-to-low`:
+      return preparedOffers.sort((a, b) => a.price - b.price).reverse();
+
+    case `top-rated-first`:
+      return preparedOffers.sort((a, b) => a.rating - b.rating).reverse();
+
+    default:
+      return preparedOffers;
+  }
+};
+
 const Main = (props) => {
-  const {onClickOfferCardTitle} = props;
-  const locationArr = props.offersListForCurrentCity.map((curr) => curr.location);
+  const {onClickOfferCardTitle, currentSortedOffersArray, currentSortValue} = props;
+  const locationArr = currentSortedOffersArray.map((curr) => curr.location);
 
   return (
     <React.Fragment>
@@ -71,57 +94,21 @@ const Main = (props) => {
 
           <CityListTabs />
 
-          {props.offersListForCurrentCity.length < 1 ? <MainEmpty city={props.currentCity} /> :
+          {currentSortedOffersArray.length < 1 ? <MainEmpty city={props.currentCity} /> :
             <div className="cities">
               <div className="cities__places-container container">
-                <section className="cities__places places">
-                  <h2 className="visually-hidden">Places</h2>
 
-                  <b className="places__found">
-                    {props.offersListForCurrentCity.length}
-                    &nbsp;places to stay in&nbsp;
-                    {props.currentCity}
-                  </b>
-
-                  <form className="places__sorting" action="#" method="get">
-                    <span className="places__sorting-caption">Sort by</span>
-                    <span className="places__sorting-type" tabIndex={0}>
-                      Popular
-                      <svg className="places__sorting-arrow" width={7} height={4}>
-                        <use xlinkHref="#icon-arrow-select" />
-                      </svg>
-                    </span>
-                    <ul className="places__options places__options--custom places__options--opened">
-                      <li className="places__option places__option--active"tabIndex={0}>Popular</li>
-                      <li className="places__option" tabIndex={0}>Price: low to high</li>
-                      <li className="places__option" tabIndex={0}>Price: high to low</li>
-                      <li className="places__option" tabIndex={0}>Top rated first</li>
-                    </ul>
-
-                    {/*
-                  <select class="places__sorting-type" id="places-sorting">
-                  <option class="places__option" value="popular" selected="">Popular</option>
-                  <option class="places__option" value="to-high">Price: low to high</option>
-                  <option class="places__option" value="to-low">Price: high to low</option>
-                  <option class="places__option" value="top-rated">Top rated first</option>
-                  </select>
-                  */}
-
-                  </form>
-                  <div className="cities__places-list places__list tabs__content">
-
-                    <OffersList
-                      offersListForCurrentCity={props.offersListForCurrentCity}
-                      onClickOfferCardTitle={onClickOfferCardTitle}
-                    />
-
-                  </div>
-                </section>
+                <OffersList
+                  offersListForCurrentCity={currentSortedOffersArray}
+                  onClickOfferCardTitle={onClickOfferCardTitle}
+                  currentCity={props.currentCity}
+                  currentSortValue={currentSortValue}
+                />
 
                 <section className={`map`} style={{width: `50%`, height: `100vh`}}>
                   <Map
                     locationArr={locationArr}
-                    cityCoordinates={props.offersListForCurrentCity[0].cityCoordinates}
+                    cityCoordinates={currentSortedOffersArray[0].cityCoordinates}
                     zoom={12}
                   />
                 </section>
@@ -139,14 +126,16 @@ const Main = (props) => {
 Main.propTypes = {
   onClickOfferCardTitle: PropTypes.func.isRequired,
   currentCity: PropTypes.string.isRequired,
-  offersListForCurrentCity: PropTypes.array.isRequired,
+  currentSortValue: PropTypes.string.isRequired,
+  currentSortedOffersArray: PropTypes.array.isRequired,
 };
 
 
 const mapStateToProps = (state) => {
   return {
     currentCity: state.city,
-    offersListForCurrentCity: state.offersCityList,
+    currentSortValue: state.sort.value,
+    currentSortedOffersArray: sortOffers(state.sort.value, state.offersCityList)
   };
 };
 

@@ -95,7 +95,7 @@ Array [
         className="place-card__name"
       >
         <a
-          href="/dev-property/23423"
+          href="/property/23423"
           onClick={[Function]}
         >
           Apartment in 3-star hotel (#6) Long-Stay discount
@@ -201,7 +201,7 @@ Array [
         className="place-card__name"
       >
         <a
-          href="/dev-property/56234"
+          href="/property/56234"
           onClick={[Function]}
         >
           Einzelzimmer in MÃ¼nchen Innenstadt
@@ -307,7 +307,7 @@ Array [
         className="place-card__name"
       >
         <a
-          href="/dev-property/55234524"
+          href="/property/55234524"
           onClick={[Function]}
         >
           Cozy room for singles, couples or friends
@@ -413,7 +413,7 @@ Array [
         className="place-card__name"
       >
         <a
-          href="/dev-property/4624234"
+          href="/property/4624234"
           onClick={[Function]}
         >
           Amazing Apartment âœ¨ Center Munich

@@ -118,7 +118,7 @@ describe(`property_test`, () => {
     const tree = renderer.create(
         <BrowserRouter>
           <Switch>
-            <Route exact path="/dev-property/:id" >
+            <Route exact path="/property/:id" >
               {(props) => <Property {...props} mockData={mockData}/>}
             </Route>
           </Switch>
