@@ -10,20 +10,11 @@ class Map extends PureComponent {
     this._mapRefContainer = createRef();
     // this._renderMap = this._renderMap.bind(this); // - works even without it
     this.map = null;
+    this.markers = null;
   }
 
   _renderMap() {
-    const {zoom, cityCoordinates, currentHoveredProperty} = this.props;
-
-
-    const icon = leaflet.icon({
-      iconUrl: `/img/pin.svg`,
-      iconSize: [27, 39]
-    });
-    const activeIcon = leaflet.icon({
-      iconUrl: `img/pin-active.svg`,
-      iconSize: [27, 39]
-    });
+    const {zoom, cityCoordinates} = this.props;
 
     this.map = leaflet.map(this._mapRefContainer.current, {
       center: cityCoordinates,
@@ -36,25 +27,37 @@ class Map extends PureComponent {
       return;
     }
 
-    this.map.setView(cityCoordinates, zoom);
-
     leaflet
       .tileLayer(`https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors`
       })
       .addTo(this.map);
 
-    const {locationArr} = this.props;
+    this.map.setView(cityCoordinates, zoom);
+    this._renderMarkers();
+  }
+
+  _renderMarkers() {
+    const defaultIcon = leaflet.icon({
+      iconUrl: `/img/pin.svg`,
+      iconSize: [27, 39]
+    });
+    const activeIcon = leaflet.icon({
+      iconUrl: `img/pin-active.svg`,
+      iconSize: [27, 39]
+    });
+
+
+    const {locationArr, currentHoveredProperty} = this.props;
     locationArr.forEach((locationItemArr) => {
-      leaflet
-        .marker(locationItemArr, {icon})
+      this.markers = leaflet
+        .marker(locationItemArr, {icon: defaultIcon})
         .addTo(this.map);
     });
 
-    // highlight pin of the hovered property
     if (currentHoveredProperty) {
-      leaflet
-      .marker(currentHoveredProperty.location, {icon: activeIcon})
+      this.markers = leaflet
+      .marker(this.props.currentHoveredProperty.location, {icon: activeIcon})
       .addTo(this.map);
     }
   }
@@ -64,11 +67,14 @@ class Map extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    // console.log(prevProps);
-    if (this.map) {
-      this.map.remove();
+    this._renderMarkers();
+
+    // move the map to the center of the choosen city
+    const {cityCoordinates, zoom} = this.props;
+    if (prevProps.cityCoordinates !== cityCoordinates) {
+      this.map.setView(cityCoordinates, zoom);
+      this._renderMarkers();
     }
-    this._renderMap();
   }
 
   componentWillUnmount() {
