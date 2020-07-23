@@ -4,6 +4,10 @@ import {INIT_CITY_FOR_THE_APP, SORT_OFFERS_OPTIONS} from '../constant_variables'
 
 // INITIAL STATE OF THE APP
 const getOffersForCity = (city) => {
+  if (!mockData.offerCard) {
+    return null;
+  }
+
   return mockData.offerCard.filter(
       (offer) => (offer.city).toLowerCase() === city.toLowerCase()
   );

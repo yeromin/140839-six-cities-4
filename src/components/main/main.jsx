@@ -5,29 +5,7 @@ import Map from '../map/map.jsx';
 import CityListTabs from '../cityListTabs/cityListTabs.jsx';
 import {connect} from 'react-redux';
 import MainEmpty from '../mainEmpty/mainEmpty.jsx';
-
-const sortOffers = (sortType, offers) => {
-
-  // make a copy of the original array.
-  // TODO: do not rerender Map!!!
-  const preparedOffers = offers.slice(0);
-  switch (sortType) {
-    case `popular`:
-      return preparedOffers;
-
-    case `low-to-high`:
-      return preparedOffers.sort((a, b) => a.price - b.price);
-
-    case `high-to-low`:
-      return preparedOffers.sort((a, b) => a.price - b.price).reverse();
-
-    case `top-rated-first`:
-      return preparedOffers.sort((a, b) => a.rating - b.rating).reverse();
-
-    default:
-      return preparedOffers;
-  }
-};
+import sortOffers from '../sortPlaces/sortFunction';
 
 const Main = (props) => {
   const {onClickOfferCardTitle, currentSortedOffersArray, currentSortValue} = props;
