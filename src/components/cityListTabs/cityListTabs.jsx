@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {actionCreator} from '../../Store/reducer';
+import {ActionCreator} from '../../Store/reducer';
 import {ALL_CITIES} from '../../constant_variables';
 
 const CityListTabs = ({currentCity, handleCityClick}) => {
@@ -47,8 +47,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handleCityClick(currCity) {
-    dispatch(actionCreator.changeCity(currCity));
-    dispatch(actionCreator.getOffersList(currCity));
+    dispatch(ActionCreator.changeCity(currCity));
+    dispatch(ActionCreator.getOffersList(currCity));
   }
 });
 

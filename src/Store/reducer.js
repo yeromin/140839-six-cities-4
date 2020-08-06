@@ -28,7 +28,7 @@ const actionType = {
   HOVERED_PLACE_CARD: `HOVERED_PLACE_CARD`,
 };
 
-const actionCreator = {
+const ActionCreator = {
   changeCity: (city = initialState.city) => {
     return {
       type: actionType.CHANGE_CITY,
@@ -90,4 +90,4 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-export {reducer, actionType, actionCreator};
+export {reducer, actionType, ActionCreator};

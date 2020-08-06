@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {actionCreator} from '../Store/reducer';
+import {ActionCreator} from '../Store/reducer';
 
 // this HOC is dedicated to keep the only Business logic
 // it will keep the Selected Option
@@ -44,7 +44,7 @@ const withSortPlacesHOC = (Component) => {
 
   const mapDispatchToProps = (dispatch) => ({
     changeSorting(sorting) {
-      dispatch(actionCreator.changeSorting(sorting));
+      dispatch(ActionCreator.changeSorting(sorting));
     }
   });
 

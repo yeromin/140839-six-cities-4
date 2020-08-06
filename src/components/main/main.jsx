@@ -5,7 +5,7 @@ import Map from '../map/map.jsx';
 import CityListTabs from '../cityListTabs/cityListTabs.jsx';
 import {connect} from 'react-redux';
 import MainEmpty from '../mainEmpty/mainEmpty.jsx';
-import sortOffers from '../sortPlaces/sortFunction';
+// import sortOffers from '../sortPlaces/sortFunction';
 
 const Main = (props) => {
   const {onClickOfferCardTitle, currentSortedOffersArray, currentSortValue} = props;
@@ -112,8 +112,8 @@ Main.propTypes = {
 const mapStateToProps = (state) => {
   return {
     currentCity: state.city,
-    currentSortValue: state.sort.value,
-    currentSortedOffersArray: sortOffers(state.sort.value, state.offersCityList)
+    // currentSortValue: state.sort.value,
+    // currentSortedOffersArray: sortOffers(state.sort.value, state.offersCityList)
   };
 };
 

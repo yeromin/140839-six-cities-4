@@ -1,8 +1,10 @@
 import React from 'react';
-import Main from '../main/main.jsx';
+// import Main from '../main/main.jsx';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Property from '../property/property.jsx';
+import {connect} from 'react-redux';
+// import {ActionCreator} from '../../reducer/data/data';
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -20,15 +22,21 @@ class App extends React.PureComponent {
   }
 
   render() {
+
+    console.log(this.props.places);
+    if (this.props.isLoading) {
+      return `загрузка`;
+    }
+
     return (
       <BrowserRouter>
 
         <Switch>
           <Route exact path="/">
-            <Main
+            {/* <Main
               mockData={this.props.mockData}
               onClickOfferCardTitle={this.handleOfferCardTitleClick}
-            />
+            /> */}
           </Route>
 
           <Route exact path="/property/:id" >
@@ -44,8 +52,21 @@ class App extends React.PureComponent {
 
 App.propTypes = {
   mockData: PropTypes.shape({
-    offerCard: PropTypes.array.isRequired
+    offerCard: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool.isRequired
   })
 };
 
-export default App;
+
+const mapStateToProps = (state) => ({
+  isLoading: state.isLoading,
+  places: state.places
+});
+
+// const mapDispatchToProps = (dispatch) => {
+//   dispatch(ActionCreator.loadPlaces());
+// }
+
+export {App};
+export default connect(mapStateToProps)(App); // mapDispatchToProps
+

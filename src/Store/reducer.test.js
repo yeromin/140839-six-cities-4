@@ -1,4 +1,4 @@
-import {reducer, actionType, actionCreator} from "./reducer.js";
+import {reducer, actionType, ActionCreator} from "./reducer.js";
 import mockData from '../mocks/offers';
 import {INIT_CITY_FOR_THE_APP} from '../constant_variables';
 
@@ -45,29 +45,29 @@ describe(`reducers_test`, () => {
 });
 
 describe(`actions_test`, () => {
-  it(`actionCreator.changeCity() returns correct data by action`, () => {
-    expect(actionCreator.changeCity(`Paris`)).toEqual({
+  it(`ActionCreator.changeCity() returns correct data by action`, () => {
+    expect(ActionCreator.changeCity(`Paris`)).toEqual({
       type: actionType.CHANGE_CITY,
       payload: `Paris`,
     });
   });
 
-  it(`actionCreator.changeCity() returns correct data by action without any parameter (by default)`, () => {
-    expect(actionCreator.changeCity()).toEqual({
+  it(`ActionCreator.changeCity() returns correct data by action without any parameter (by default)`, () => {
+    expect(ActionCreator.changeCity()).toEqual({
       type: actionType.CHANGE_CITY,
       payload: initCity,
     });
   });
 
-  it(`actionCreator.getOffersList() returns correct data by action`, () => {
-    expect(actionCreator.getOffersList(`Amsterdam`)).toEqual({
+  it(`ActionCreator.getOffersList() returns correct data by action`, () => {
+    expect(ActionCreator.getOffersList(`Amsterdam`)).toEqual({
       type: actionType.GET_OFFERS,
       payload: getOffersForCity(`Amsterdam`)
     });
   });
 
-  it(`actionCreator.getOffersList() returns correct data by action without any parameter (by default)`, () => {
-    expect(actionCreator.getOffersList()).toEqual({
+  it(`ActionCreator.getOffersList() returns correct data by action without any parameter (by default)`, () => {
+    expect(ActionCreator.getOffersList()).toEqual({
       type: actionType.GET_OFFERS,
       payload: getOffersForCity(`Amsterdam`)
     });
